@@ -79,13 +79,6 @@
             "pestphp/pest-plugin": true
         }
     },
-    "replace": {
-        "opensynergic/core": "self.version",
-        "opensynergic/hooks": "self.version",
-        "opensynergic/installer": "self.version",
-        "opensynergic/plugins-manager": "self.version",
-        "opensynergic/themes-manager": "self.version"
-    },
     "minimum-stability": "dev",
     "prefer-stable": true
 }

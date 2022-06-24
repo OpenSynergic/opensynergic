@@ -17,7 +17,7 @@
     ],
     "require": {
         "php": "^8.0",
-        "opensynergic/hooks": "^0.2",
+        "opensynergic/hooks": "self.version",
         "filament/filament": "^2.0",
         "filament/spatie-laravel-media-library-plugin": "^2.12",
         "bezhansalleh/filament-shield": "^1.1",
