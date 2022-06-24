@@ -25,7 +25,7 @@ class Profile extends Page implements HasForms
 
     protected static string $view = 'core::filament.pages.profile';
 
-    // protected static bool $shouldRegisterNavigation = false;
+    protected static bool $shouldRegisterNavigation = false;
 
     protected function getFormModel(): Model | string | null
     {
@@ -47,8 +47,8 @@ class Profile extends Page implements HasForms
         auth()->user()->update($state);
 
         if (isset($state['password'])) {
-            //prevent logged out when changing user password
-            // TODO for regenerate api token when password is changed
+            // TODO regenerate api token when password is changed
+            // prevent logged out when changing user password
             $user = config('auth.providers.users.model', User::class)::find(auth()->user()->id);
             Session::flush();
             Filament::auth()->login($user, !!$user->getRememberToken());

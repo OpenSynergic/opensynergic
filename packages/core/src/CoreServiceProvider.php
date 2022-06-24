@@ -2,21 +2,14 @@
 
 namespace OpenSynergic\Core;
 
-use Filament\Forms\Components\TextInput;
 use Filament\Navigation\UserMenuItem;
 use Filament\PluginServiceProvider;
-use Illuminate\Contracts\Auth\Access\Authorizable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
 use OpenSynergic\Core\Filament\Pages\Profile;
 use Spatie\LaravelPackageTools\Package;
-use OpenSynergic\Core\Filament\Pages\Settings\Access;
 use OpenSynergic\Core\Livewire\Tables;
-use OpenSynergic\Core\Filament\Resources\RoleResource;
-use OpenSynergic\Core\Filament\Resources\UserResource;
-use OpenSynergic\Hooks\Facades\Hook;
 use Spatie\Permission\Models\Permission;
 
 class CoreServiceProvider extends PluginServiceProvider

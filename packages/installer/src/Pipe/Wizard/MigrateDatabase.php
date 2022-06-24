@@ -14,7 +14,9 @@ class MigrateDatabase implements Pipe
 
     \DB::disconnect();
 
-    Artisan::call('migrate:fresh');
+    Artisan::call('migrate:fresh', [
+      '--force' => true
+    ]);
 
     return $next($content);
   }

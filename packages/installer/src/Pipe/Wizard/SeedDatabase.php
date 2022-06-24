@@ -10,6 +10,8 @@ class SeedDatabase implements Pipe
 {
   public function handle($content, Closure $next)
   {
-    Artisan::call('db:seed');
+    Artisan::call('db:seed', [
+      '--force' => true
+    ]);
   }
 }
