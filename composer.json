@@ -1,0 +1,80 @@
+{
+    "name": "opensynergic/opensynergic",
+    "description": "A monorepo for OpenSynergic",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rahman Ramsi",
+            "email": "rahmanramsi19@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "bezhansalleh/filament-shield": "^1.1",
+        "calebporzio/sushi": "^2.4",
+        "filament/filament": "^2.0",
+        "filament/spatie-laravel-media-library-plugin": "^2.12",
+        "illuminate/contracts": "^8.0|^9.0",
+        "php": "^8.0",
+        "spatie/laravel-package-tools": "^1.9.2",
+        "spatie/valuestore": "^1.3",
+        "stechstudio/filament-impersonate": "^2.5",
+        "z3d0x/filament-logger": "^0.2.2",
+        "zanysoft/laravel-zip": "^2.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.8",
+        "nunomaduro/collision": "^6.0",
+        "orchestra/testbench": "^7.0",
+        "pestphp/pest": "^1.21",
+        "pestphp/pest-plugin-laravel": "^1.1",
+        "phpunit/phpunit": "^9.5",
+        "spatie/laravel-ray": "^1.26",
+        "symplify/monorepo-builder": "^11.0"
+    },
+    "autoload": {
+        "files": [
+            "packages/themes-manager/helpers/helper.php"
+        ],
+        "psr-4": {
+            "OpenSynergic\\Core\\": "packages/core/src",
+            "OpenSynergic\\Core\\Database\\Factories\\": "packages/core/database/factories",
+            "OpenSynergic\\Hooks\\": "packages/hooks/src",
+            "OpenSynergic\\Plugins\\": "packages/plugins-manager/src",
+            "OpenSynergic\\Plugins\\Database\\Factories\\": "packages/plugins-manager/database/factories",
+            "OpenSynergic\\ThemesManager\\": "packages/themes-manager/src",
+            "OpenSynergic\\ThemesManager\\Database\\Factories\\": "packages/themes-manager/database/factories"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OpenSynergic\\Core\\Tests\\": "packages/core/tests",
+            "OpenSynergic\\Hooks\\Tests\\": "packages/hooks/tests",
+            "OpenSynergic\\Plugins\\Tests\\": "packages/plugins-manager/tests",
+            "OpenSynergic\\ThemesManager\\Tests\\": "packages/themes-manager/tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "OpenSynergic\\Plugins\\PluginsServiceProvider",
+                "OpenSynergic\\Core\\CoreServiceProvider",
+                "OpenSynergic\\Hooks\\HooksServiceProvider",
+                "OpenSynergic\\ThemesManager\\ThemesManagerServiceProvider"
+            ],
+            "aliases": {
+                "Plugin": "OpenSynergic\\Plugins\\Facades\\Plugin",
+                "Hook": "OpenSynergic\\Hooks\\Facades\\Hook",
+                "Themes": "OpenSynergic\\ThemesManager\\Facades\\Themes"
+            }
+        }
+    },
+    "replace": {
+        "opensynergic/core": "0.2.7",
+        "opensynergic/hooks": "0.2.7",
+        "opensynergic/plugins-manager": "0.2.7",
+        "opensynergic/themes-manager": "0.2.7"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

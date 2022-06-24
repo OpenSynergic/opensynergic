@@ -1,0 +1,1545 @@
+{
+    "packages": [
+        {
+            "name": "nette\/utils",
+            "version": "v3.2.7",
+            "version_normalized": "3.2.7.0",
+            "source": {
+                "type": "git",
+                "url": "https:\/\/github.com\/nette\/utils.git",
+                "reference": "0af4e3de4df9f1543534beab255ccf459e7a2c99"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https:\/\/api.github.com\/repos\/nette\/utils\/zipball\/0af4e3de4df9f1543534beab255ccf459e7a2c99",
+                "reference": "0af4e3de4df9f1543534beab255ccf459e7a2c99",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2 <8.2"
+            },
+            "conflict": {
+                "nette\/di": "<3.0.6"
+            },
+            "require-dev": {
+                "nette\/tester": "~2.0",
+                "phpstan\/phpstan": "^1.0",
+                "tracy\/tracy": "^2.3"
+            },
+            "suggest": {
+                "ext-gd": "to use Image",
+                "ext-iconv": "to use Strings::webalize(), toAscii(), chr() and reverse()",
+                "ext-intl": "to use Strings::webalize(), toAscii(), normalize() and compare()",
+                "ext-json": "to use Nette\\Utils\\Json",
+                "ext-mbstring": "to use Strings::lower() etc...",
+                "ext-tokenizer": "to use Nette\\Utils\\Reflection::getUseStatements()",
+                "ext-xml": "to use Strings::length() etc. when mbstring is not available"
+            },
+            "time": "2022-01-24T11:29:14+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.2-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    "src\/"
+                ]
+            },
+            "notification-url": "https:\/\/packagist.org\/downloads\/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0-only",
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "https:\/\/davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "https:\/\/nette.org\/contributors"
+                }
+            ],
+            "description": "\ud83d\udee0  Nette Utils: lightweight utilities for string & array manipulation, image handling, safe JSON encoding\/decoding, validation, slug or strong password generating etc.",
+            "homepage": "https:\/\/nette.org",
+            "keywords": [
+                "array",
+                "core",
+                "datetime",
+                "images",
+                "json",
+                "nette",
+                "paginator",
+                "password",
+                "slugify",
+                "string",
+                "unicode",
+                "utf-8",
+                "utility",
+                "validation"
+            ],
+            "support": {
+                "issues": "https:\/\/github.com\/nette\/utils\/issues",
+                "source": "https:\/\/github.com\/nette\/utils\/tree\/v3.2.7"
+            },
+            "install-path": "..\/nette\/utils"
+        },
+        {
+            "name": "phar-io\/version",
+            "version": "3.2.1",
+            "version_normalized": "3.2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https:\/\/github.com\/phar-io\/version.git",
+                "reference": "4f7fd7836c6f332bb2933569e566a0d6c4cbed74"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https:\/\/api.github.com\/repos\/phar-io\/version\/zipball\/4f7fd7836c6f332bb2933569e566a0d6c4cbed74",
+                "reference": "4f7fd7836c6f332bb2933569e566a0d6c4cbed74",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2 || ^8.0"
+            },
+            "time": "2022-02-21T01:04:05+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    "src\/"
+                ]
+            },
+            "notification-url": "https:\/\/packagist.org\/downloads\/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Arne Blankerts",
+                    "email": "arne@blankerts.de",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Sebastian Heuer",
+                    "email": "sebastian@phpeople.de",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sebastian@phpunit.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Library for handling version information and constraints",
+            "support": {
+                "issues": "https:\/\/github.com\/phar-io\/version\/issues",
+                "source": "https:\/\/github.com\/phar-io\/version\/tree\/3.2.1"
+            },
+            "install-path": "..\/phar-io\/version"
+        },
+        {
+            "name": "psr\/container",
+            "version": "2.0.2",
+            "version_normalized": "2.0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https:\/\/github.com\/php-fig\/container.git",
+                "reference": "c71ecc56dfe541dbd90c5360474fbc405f8d5963"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https:\/\/api.github.com\/repos\/php-fig\/container\/zipball\/c71ecc56dfe541dbd90c5360474fbc405f8d5963",
+                "reference": "c71ecc56dfe541dbd90c5360474fbc405f8d5963",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4.0"
+            },
+            "time": "2021-11-05T16:47:00+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "MonorepoBuilder202206\\Psr\\Container\\": "src\/"
+                }
+            },
+            "notification-url": "https:\/\/packagist.org\/downloads\/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https:\/\/www.php-fig.org\/"
+                }
+            ],
+            "description": "Common Container Interface (PHP FIG PSR-11)",
+            "homepage": "https:\/\/github.com\/php-fig\/container",
+            "keywords": [
+                "PSR-11",
+                "container",
+                "container-interface",
+                "container-interop",
+                "psr"
+            ],
+            "support": {
+                "issues": "https:\/\/github.com\/php-fig\/container\/issues",
+                "source": "https:\/\/github.com\/php-fig\/container\/tree\/2.0.2"
+            },
+            "install-path": "..\/psr\/container"
+        },
+        {
+            "name": "sebastian\/diff",
+            "version": "4.0.4",
+            "version_normalized": "4.0.4.0",
+            "source": {
+                "type": "git",
+                "url": "https:\/\/github.com\/sebastianbergmann\/diff.git",
+                "reference": "3461e3fccc7cfdfc2720be910d3bd73c69be590d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https:\/\/api.github.com\/repos\/sebastianbergmann\/diff\/zipball\/3461e3fccc7cfdfc2720be910d3bd73c69be590d",
+                "reference": "3461e3fccc7cfdfc2720be910d3bd73c69be590d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.3"
+            },
+            "require-dev": {
+                "phpunit\/phpunit": "^9.3",
+                "symfony\/process": "^4.2 || ^5"
+            },
+            "time": "2020-10-26T13:10:38+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.0-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    "src\/"
+                ]
+            },
+            "notification-url": "https:\/\/packagist.org\/downloads\/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sebastian@phpunit.de"
+                },
+                {
+                    "name": "Kore Nordmann",
+                    "email": "mail@kore-nordmann.de"
+                }
+            ],
+            "description": "Diff implementation",
+            "homepage": "https:\/\/github.com\/sebastianbergmann\/diff",
+            "keywords": [
+                "diff",
+                "udiff",
+                "unidiff",
+                "unified diff"
+            ],
+            "support": {
+                "issues": "https:\/\/github.com\/sebastianbergmann\/diff\/issues",
+                "source": "https:\/\/github.com\/sebastianbergmann\/diff\/tree\/4.0.4"
+            },
+            "funding": [
+                {
+                    "url": "https:\/\/github.com\/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+            "install-path": "..\/sebastian\/diff"
+        },
+        {
+            "name": "symfony\/config",
+            "version": "v6.0.9",
+            "version_normalized": "6.0.9.0",
+            "source": {
+                "type": "git",
+                "url": "https:\/\/github.com\/symfony\/config.git",
+                "reference": "9c40f44bc38d91aeefbcdd1d42609033984ce062"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https:\/\/api.github.com\/repos\/symfony\/config\/zipball\/9c40f44bc38d91aeefbcdd1d42609033984ce062",
+                "reference": "9c40f44bc38d91aeefbcdd1d42609033984ce062",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0.2",
+                "symfony\/deprecation-contracts": "^2.1|^3",
+                "symfony\/filesystem": "^5.4|^6.0",
+                "symfony\/polyfill-ctype": "~1.8",
+                "symfony\/polyfill-php81": "^1.22"
+            },
+            "conflict": {
+                "symfony\/finder": "<4.4"
+            },
+            "require-dev": {
+                "symfony\/event-dispatcher": "^5.4|^6.0",
+                "symfony\/finder": "^5.4|^6.0",
+                "symfony\/messenger": "^5.4|^6.0",
+                "symfony\/service-contracts": "^1.1|^2|^3",
+                "symfony\/yaml": "^5.4|^6.0"
+            },
+            "suggest": {
+                "symfony\/yaml": "To use the yaml reference dumper"
+            },
+            "time": "2022-05-17T12:08:13+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "MonorepoBuilder202206\\Symfony\\Component\\Config\\": ""
+                },
+                "exclude-from-classmap": [
+                    "\/Tests\/"
+                ]
+            },
+            "notification-url": "https:\/\/packagist.org\/downloads\/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https:\/\/symfony.com\/contributors"
+                }
+            ],
+            "description": "Helps you find, load, combine, autofill and validate configuration values of any kind",
+            "homepage": "https:\/\/symfony.com",
+            "support": {
+                "source": "https:\/\/github.com\/symfony\/config\/tree\/v6.0.9"
+            },
+            "funding": [
+                {
+                    "url": "https:\/\/symfony.com\/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https:\/\/github.com\/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https:\/\/tidelift.com\/funding\/github\/packagist\/symfony\/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": "..\/symfony\/config"
+        },
+        {
+            "name": "symfony\/console",
+            "version": "v6.0.9",
+            "version_normalized": "6.0.9.0",
+            "source": {
+                "type": "git",
+                "url": "https:\/\/github.com\/symfony\/console.git",
+                "reference": "9b190bc7a19d19add1dbb3382721973836e59b50"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https:\/\/api.github.com\/repos\/symfony\/console\/zipball\/9b190bc7a19d19add1dbb3382721973836e59b50",
+                "reference": "9b190bc7a19d19add1dbb3382721973836e59b50",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0.2",
+                "symfony\/polyfill-mbstring": "~1.0",
+                "symfony\/service-contracts": "^1.1|^2|^3",
+                "symfony\/string": "^5.4|^6.0"
+            },
+            "conflict": {
+                "symfony\/dependency-injection": "<5.4",
+                "symfony\/dotenv": "<5.4",
+                "symfony\/event-dispatcher": "<5.4",
+                "symfony\/lock": "<5.4",
+                "symfony\/process": "<5.4"
+            },
+            "provide": {
+                "psr\/log-implementation": "1.0|2.0|3.0"
+            },
+            "require-dev": {
+                "psr\/log": "^1|^2|^3",
+                "symfony\/config": "^5.4|^6.0",
+                "symfony\/dependency-injection": "^5.4|^6.0",
+                "symfony\/event-dispatcher": "^5.4|^6.0",
+                "symfony\/lock": "^5.4|^6.0",
+                "symfony\/process": "^5.4|^6.0",
+                "symfony\/var-dumper": "^5.4|^6.0"
+            },
+            "suggest": {
+                "psr\/log": "For using the console logger",
+                "symfony\/event-dispatcher": "",
+                "symfony\/lock": "",
+                "symfony\/process": ""
+            },
+            "time": "2022-05-27T06:40:13+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "MonorepoBuilder202206\\Symfony\\Component\\Console\\": ""
+                },
+                "exclude-from-classmap": [
+                    "\/Tests\/"
+                ]
+            },
+            "notification-url": "https:\/\/packagist.org\/downloads\/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https:\/\/symfony.com\/contributors"
+                }
+            ],
+            "description": "Eases the creation of beautiful and testable command line interfaces",
+            "homepage": "https:\/\/symfony.com",
+            "keywords": [
+                "cli",
+                "command line",
+                "console",
+                "terminal"
+            ],
+            "support": {
+                "source": "https:\/\/github.com\/symfony\/console\/tree\/v6.0.9"
+            },
+            "funding": [
+                {
+                    "url": "https:\/\/symfony.com\/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https:\/\/github.com\/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https:\/\/tidelift.com\/funding\/github\/packagist\/symfony\/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": "..\/symfony\/console"
+        },
+        {
+            "name": "symfony\/dependency-injection",
+            "version": "v6.0.9",
+            "version_normalized": "6.0.9.0",
+            "source": {
+                "type": "git",
+                "url": "https:\/\/github.com\/symfony\/dependency-injection.git",
+                "reference": "eb0945f285285861a6a6b95b8e7f5881680c0d75"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https:\/\/api.github.com\/repos\/symfony\/dependency-injection\/zipball\/eb0945f285285861a6a6b95b8e7f5881680c0d75",
+                "reference": "eb0945f285285861a6a6b95b8e7f5881680c0d75",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0.2",
+                "psr\/container": "^1.1|^2.0",
+                "symfony\/deprecation-contracts": "^2.1|^3",
+                "symfony\/polyfill-php81": "^1.22",
+                "symfony\/service-contracts": "^1.1.6|^2.0|^3.0"
+            },
+            "conflict": {
+                "ext-psr": "<1.1|>=2",
+                "symfony\/config": "<5.4",
+                "symfony\/finder": "<5.4",
+                "symfony\/proxy-manager-bridge": "<5.4",
+                "symfony\/yaml": "<5.4"
+            },
+            "provide": {
+                "psr\/container-implementation": "1.1|2.0",
+                "symfony\/service-implementation": "1.1|2.0|3.0"
+            },
+            "require-dev": {
+                "symfony\/config": "^5.4|^6.0",
+                "symfony\/expression-language": "^5.4|^6.0",
+                "symfony\/yaml": "^5.4|^6.0"
+            },
+            "suggest": {
+                "symfony\/config": "",
+                "symfony\/expression-language": "For using expressions in service container configuration",
+                "symfony\/finder": "For using double-star glob patterns or when GLOB_BRACE portability is required",
+                "symfony\/proxy-manager-bridge": "Generate service proxies to lazy load them",
+                "symfony\/yaml": ""
+            },
+            "time": "2022-05-27T06:40:13+00:00",
+            "type": "library",
+            "extra": {
+                "patches_applied": [
+                    "https:\/\/raw.githubusercontent.com\/symplify\/vendor-patch-files\/main\/patches\/generic-php-config-loader.patch"
+                ]
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "MonorepoBuilder202206\\Symfony\\Component\\DependencyInjection\\": ""
+                },
+                "exclude-from-classmap": [
+                    "\/Tests\/"
+                ]
+            },
+            "notification-url": "https:\/\/packagist.org\/downloads\/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https:\/\/symfony.com\/contributors"
+                }
+            ],
+            "description": "Allows you to standardize and centralize the way objects are constructed in your application",
+            "homepage": "https:\/\/symfony.com",
+            "support": {
+                "source": "https:\/\/github.com\/symfony\/dependency-injection\/tree\/v6.0.9"
+            },
+            "funding": [
+                {
+                    "url": "https:\/\/symfony.com\/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https:\/\/github.com\/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https:\/\/tidelift.com\/funding\/github\/packagist\/symfony\/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": "..\/symfony\/dependency-injection"
+        },
+        {
+            "name": "symfony\/deprecation-contracts",
+            "version": "v3.0.1",
+            "version_normalized": "3.0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https:\/\/github.com\/symfony\/deprecation-contracts.git",
+                "reference": "26954b3d62a6c5fd0ea8a2a00c0353a14978d05c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https:\/\/api.github.com\/repos\/symfony\/deprecation-contracts\/zipball\/26954b3d62a6c5fd0ea8a2a00c0353a14978d05c",
+                "reference": "26954b3d62a6c5fd0ea8a2a00c0353a14978d05c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0.2"
+            },
+            "time": "2022-01-02T09:55:41+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "3.0-dev"
+                },
+                "thanks": {
+                    "name": "symfony\/contracts",
+                    "url": "https:\/\/github.com\/symfony\/contracts"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "function.php"
+                ]
+            },
+            "notification-url": "https:\/\/packagist.org\/downloads\/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https:\/\/symfony.com\/contributors"
+                }
+            ],
+            "description": "A generic function and convention to trigger deprecation notices",
+            "homepage": "https:\/\/symfony.com",
+            "support": {
+                "source": "https:\/\/github.com\/symfony\/deprecation-contracts\/tree\/v3.0.1"
+            },
+            "funding": [
+                {
+                    "url": "https:\/\/symfony.com\/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https:\/\/github.com\/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https:\/\/tidelift.com\/funding\/github\/packagist\/symfony\/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": "..\/symfony\/deprecation-contracts"
+        },
+        {
+            "name": "symfony\/filesystem",
+            "version": "v6.0.9",
+            "version_normalized": "6.0.9.0",
+            "source": {
+                "type": "git",
+                "url": "https:\/\/github.com\/symfony\/filesystem.git",
+                "reference": "bf7b9d2ee692b6df2a41017d6023a2fe732d240c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https:\/\/api.github.com\/repos\/symfony\/filesystem\/zipball\/bf7b9d2ee692b6df2a41017d6023a2fe732d240c",
+                "reference": "bf7b9d2ee692b6df2a41017d6023a2fe732d240c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0.2",
+                "symfony\/polyfill-ctype": "~1.8",
+                "symfony\/polyfill-mbstring": "~1.8"
+            },
+            "time": "2022-05-21T13:33:31+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "MonorepoBuilder202206\\Symfony\\Component\\Filesystem\\": ""
+                },
+                "exclude-from-classmap": [
+                    "\/Tests\/"
+                ]
+            },
+            "notification-url": "https:\/\/packagist.org\/downloads\/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https:\/\/symfony.com\/contributors"
+                }
+            ],
+            "description": "Provides basic utilities for the filesystem",
+            "homepage": "https:\/\/symfony.com",
+            "support": {
+                "source": "https:\/\/github.com\/symfony\/filesystem\/tree\/v6.0.9"
+            },
+            "funding": [
+                {
+                    "url": "https:\/\/symfony.com\/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https:\/\/github.com\/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https:\/\/tidelift.com\/funding\/github\/packagist\/symfony\/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": "..\/symfony\/filesystem"
+        },
+        {
+            "name": "symfony\/finder",
+            "version": "v6.0.8",
+            "version_normalized": "6.0.8.0",
+            "source": {
+                "type": "git",
+                "url": "https:\/\/github.com\/symfony\/finder.git",
+                "reference": "af7edab28d17caecd1f40a9219fc646ae751c21f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https:\/\/api.github.com\/repos\/symfony\/finder\/zipball\/af7edab28d17caecd1f40a9219fc646ae751c21f",
+                "reference": "af7edab28d17caecd1f40a9219fc646ae751c21f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0.2"
+            },
+            "time": "2022-04-15T08:07:58+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "MonorepoBuilder202206\\Symfony\\Component\\Finder\\": ""
+                },
+                "exclude-from-classmap": [
+                    "\/Tests\/"
+                ]
+            },
+            "notification-url": "https:\/\/packagist.org\/downloads\/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https:\/\/symfony.com\/contributors"
+                }
+            ],
+            "description": "Finds files and directories via an intuitive fluent interface",
+            "homepage": "https:\/\/symfony.com",
+            "support": {
+                "source": "https:\/\/github.com\/symfony\/finder\/tree\/v6.0.8"
+            },
+            "funding": [
+                {
+                    "url": "https:\/\/symfony.com\/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https:\/\/github.com\/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https:\/\/tidelift.com\/funding\/github\/packagist\/symfony\/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": "..\/symfony\/finder"
+        },
+        {
+            "name": "symfony\/polyfill-php81",
+            "version": "v1.26.0",
+            "version_normalized": "1.26.0.0",
+            "source": {
+                "type": "git",
+                "url": "https:\/\/github.com\/symfony\/polyfill-php81.git",
+                "reference": "13f6d1271c663dc5ae9fb843a8f16521db7687a1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https:\/\/api.github.com\/repos\/symfony\/polyfill-php81\/zipball\/13f6d1271c663dc5ae9fb843a8f16521db7687a1",
+                "reference": "13f6d1271c663dc5ae9fb843a8f16521db7687a1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "time": "2022-05-24T11:49:31+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.26-dev"
+                },
+                "thanks": {
+                    "name": "symfony\/polyfill",
+                    "url": "https:\/\/github.com\/symfony\/polyfill"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php81\\": ""
+                },
+                "classmap": [
+                    "Resources\/stubs"
+                ]
+            },
+            "notification-url": "https:\/\/packagist.org\/downloads\/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https:\/\/symfony.com\/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting some PHP 8.1+ features to lower PHP versions",
+            "homepage": "https:\/\/symfony.com",
+            "keywords": [
+                "compatibility",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "support": {
+                "source": "https:\/\/github.com\/symfony\/polyfill-php81\/tree\/v1.26.0"
+            },
+            "funding": [
+                {
+                    "url": "https:\/\/symfony.com\/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https:\/\/github.com\/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https:\/\/tidelift.com\/funding\/github\/packagist\/symfony\/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": "..\/symfony\/polyfill-php81"
+        },
+        {
+            "name": "symfony\/process",
+            "version": "v6.0.8",
+            "version_normalized": "6.0.8.0",
+            "source": {
+                "type": "git",
+                "url": "https:\/\/github.com\/symfony\/process.git",
+                "reference": "d074154ea8b1443a96391f6e39f9e547b2dd01b9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https:\/\/api.github.com\/repos\/symfony\/process\/zipball\/d074154ea8b1443a96391f6e39f9e547b2dd01b9",
+                "reference": "d074154ea8b1443a96391f6e39f9e547b2dd01b9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0.2"
+            },
+            "time": "2022-04-12T16:11:42+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "MonorepoBuilder202206\\Symfony\\Component\\Process\\": ""
+                },
+                "exclude-from-classmap": [
+                    "\/Tests\/"
+                ]
+            },
+            "notification-url": "https:\/\/packagist.org\/downloads\/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https:\/\/symfony.com\/contributors"
+                }
+            ],
+            "description": "Executes commands in sub-processes",
+            "homepage": "https:\/\/symfony.com",
+            "support": {
+                "source": "https:\/\/github.com\/symfony\/process\/tree\/v6.0.8"
+            },
+            "funding": [
+                {
+                    "url": "https:\/\/symfony.com\/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https:\/\/github.com\/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https:\/\/tidelift.com\/funding\/github\/packagist\/symfony\/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": "..\/symfony\/process"
+        },
+        {
+            "name": "symfony\/service-contracts",
+            "version": "v3.0.1",
+            "version_normalized": "3.0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https:\/\/github.com\/symfony\/service-contracts.git",
+                "reference": "e517458f278c2131ca9f262f8fbaf01410f2c65c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https:\/\/api.github.com\/repos\/symfony\/service-contracts\/zipball\/e517458f278c2131ca9f262f8fbaf01410f2c65c",
+                "reference": "e517458f278c2131ca9f262f8fbaf01410f2c65c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0.2",
+                "psr\/container": "^2.0"
+            },
+            "conflict": {
+                "ext-psr": "<1.1|>=2"
+            },
+            "suggest": {
+                "symfony\/service-implementation": ""
+            },
+            "time": "2022-03-13T20:10:05+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "3.0-dev"
+                },
+                "thanks": {
+                    "name": "symfony\/contracts",
+                    "url": "https:\/\/github.com\/symfony\/contracts"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "MonorepoBuilder202206\\Symfony\\Contracts\\Service\\": ""
+                }
+            },
+            "notification-url": "https:\/\/packagist.org\/downloads\/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https:\/\/symfony.com\/contributors"
+                }
+            ],
+            "description": "Generic abstractions related to writing services",
+            "homepage": "https:\/\/symfony.com",
+            "keywords": [
+                "abstractions",
+                "contracts",
+                "decoupling",
+                "interfaces",
+                "interoperability",
+                "standards"
+            ],
+            "support": {
+                "source": "https:\/\/github.com\/symfony\/service-contracts\/tree\/v3.0.1"
+            },
+            "funding": [
+                {
+                    "url": "https:\/\/symfony.com\/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https:\/\/github.com\/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https:\/\/tidelift.com\/funding\/github\/packagist\/symfony\/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": "..\/symfony\/service-contracts"
+        },
+        {
+            "name": "symfony\/string",
+            "version": "v6.0.9",
+            "version_normalized": "6.0.9.0",
+            "source": {
+                "type": "git",
+                "url": "https:\/\/github.com\/symfony\/string.git",
+                "reference": "df9f03d595aa2d446498ba92fe803a519b2c43cc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https:\/\/api.github.com\/repos\/symfony\/string\/zipball\/df9f03d595aa2d446498ba92fe803a519b2c43cc",
+                "reference": "df9f03d595aa2d446498ba92fe803a519b2c43cc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0.2",
+                "symfony\/polyfill-ctype": "~1.8",
+                "symfony\/polyfill-intl-grapheme": "~1.0",
+                "symfony\/polyfill-intl-normalizer": "~1.0",
+                "symfony\/polyfill-mbstring": "~1.0"
+            },
+            "conflict": {
+                "symfony\/translation-contracts": "<2.0"
+            },
+            "require-dev": {
+                "symfony\/error-handler": "^5.4|^6.0",
+                "symfony\/http-client": "^5.4|^6.0",
+                "symfony\/translation-contracts": "^2.0|^3.0",
+                "symfony\/var-exporter": "^5.4|^6.0"
+            },
+            "time": "2022-04-22T08:18:02+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "Resources\/functions.php"
+                ],
+                "psr-4": {
+                    "MonorepoBuilder202206\\Symfony\\Component\\String\\": ""
+                },
+                "exclude-from-classmap": [
+                    "\/Tests\/"
+                ]
+            },
+            "notification-url": "https:\/\/packagist.org\/downloads\/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https:\/\/symfony.com\/contributors"
+                }
+            ],
+            "description": "Provides an object-oriented API to strings and deals with bytes, UTF-8 code points and grapheme clusters in a unified way",
+            "homepage": "https:\/\/symfony.com",
+            "keywords": [
+                "grapheme",
+                "i18n",
+                "string",
+                "unicode",
+                "utf-8",
+                "utf8"
+            ],
+            "support": {
+                "source": "https:\/\/github.com\/symfony\/string\/tree\/v6.0.9"
+            },
+            "funding": [
+                {
+                    "url": "https:\/\/symfony.com\/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https:\/\/github.com\/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https:\/\/tidelift.com\/funding\/github\/packagist\/symfony\/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": "..\/symfony\/string"
+        },
+        {
+            "name": "symplify\/autowire-array-parameter",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "..\/..\/packages\/autowire-array-parameter",
+                "reference": "99d9879e0d7acee9eefbabe7485e451963197764"
+            },
+            "require": {
+                "nette\/utils": "^3.2",
+                "php": ">=8.0",
+                "symfony\/dependency-injection": "^6.0",
+                "symplify\/package-builder": "dev-main"
+            },
+            "conflict": {
+                "symplify\/astral": "<11.0.5",
+                "symplify\/coding-standard": "<11.0.5",
+                "symplify\/composer-json-manipulator": "<11.0.5",
+                "symplify\/config-transformer": "<11.0.5",
+                "symplify\/easy-ci": "<11.0.5",
+                "symplify\/easy-coding-standard": "<11.0.5",
+                "symplify\/easy-parallel": "<11.0.5",
+                "symplify\/easy-testing": "<11.0.5",
+                "symplify\/monorepo-builder": "<11.0.5",
+                "symplify\/neon-config-dumper": "<11.0.5",
+                "symplify\/php-config-printer": "<11.0.5",
+                "symplify\/phpstan-extensions": "<11.0.5",
+                "symplify\/phpstan-rules": "<11.0.5",
+                "symplify\/rule-doc-generator": "<11.0.5",
+                "symplify\/rule-doc-generator-contracts": "<11.0.5",
+                "symplify\/skipper": "<11.0.5",
+                "symplify\/smart-file-system": "<11.0.5",
+                "symplify\/symfony-static-dumper": "<11.0.5",
+                "symplify\/symplify-kernel": "<11.0.5",
+                "symplify\/vendor-patches": "<11.0.5"
+            },
+            "require-dev": {
+                "phpunit\/phpunit": "^9.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "11.1-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "MonorepoBuilder202206\\Symplify\\AutowireArrayParameter\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "MonorepoBuilder202206\\Symplify\\AutowireArrayParameter\\Tests\\": "tests"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Autowire array parameters for your Symfony applications",
+            "transport-options": {
+                "symlink": false,
+                "relative": true
+            },
+            "install-path": "..\/symplify\/autowire-array-parameter"
+        },
+        {
+            "name": "symplify\/composer-json-manipulator",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "..\/..\/packages\/composer-json-manipulator",
+                "reference": "c41b9f2676e7a68ef37243ffadd621a7e7e26e7d"
+            },
+            "require": {
+                "nette\/utils": "^3.2",
+                "php": ">=8.0",
+                "symfony\/config": "^6.0",
+                "symfony\/dependency-injection": "^6.0",
+                "symfony\/filesystem": "^6.0",
+                "symplify\/package-builder": "dev-main",
+                "symplify\/smart-file-system": "dev-main",
+                "symplify\/symplify-kernel": "dev-main"
+            },
+            "conflict": {
+                "symplify\/astral": "<11.0.5",
+                "symplify\/autowire-array-parameter": "<11.0.5",
+                "symplify\/coding-standard": "<11.0.5",
+                "symplify\/config-transformer": "<11.0.5",
+                "symplify\/easy-ci": "<11.0.5",
+                "symplify\/easy-coding-standard": "<11.0.5",
+                "symplify\/easy-parallel": "<11.0.5",
+                "symplify\/easy-testing": "<11.0.5",
+                "symplify\/monorepo-builder": "<11.0.5",
+                "symplify\/neon-config-dumper": "<11.0.5",
+                "symplify\/php-config-printer": "<11.0.5",
+                "symplify\/phpstan-extensions": "<11.0.5",
+                "symplify\/phpstan-rules": "<11.0.5",
+                "symplify\/rule-doc-generator": "<11.0.5",
+                "symplify\/rule-doc-generator-contracts": "<11.0.5",
+                "symplify\/skipper": "<11.0.5",
+                "symplify\/symfony-static-dumper": "<11.0.5",
+                "symplify\/symplify-kernel": "<9.4.70",
+                "symplify\/vendor-patches": "<11.0.5"
+            },
+            "require-dev": {
+                "phpunit\/phpunit": "^9.5"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "11.1-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "MonorepoBuilder202206\\Symplify\\ComposerJsonManipulator\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "MonorepoBuilder202206\\Symplify\\ComposerJsonManipulator\\Tests\\": "tests"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Package to load, merge and save composer.json file(s)",
+            "transport-options": {
+                "symlink": false,
+                "relative": true
+            },
+            "install-path": "..\/symplify\/composer-json-manipulator"
+        },
+        {
+            "name": "symplify\/easy-testing",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "..\/..\/packages\/easy-testing",
+                "reference": "713f455faf5e4565a736db07ce7c383655ca09e5"
+            },
+            "require": {
+                "nette\/utils": "^3.2",
+                "php": ">=8.0",
+                "symfony\/console": "^6.0",
+                "symfony\/dependency-injection": "^6.0",
+                "symfony\/finder": "^6.0",
+                "symplify\/package-builder": "dev-main",
+                "symplify\/smart-file-system": "dev-main",
+                "symplify\/symplify-kernel": "dev-main"
+            },
+            "conflict": {
+                "symplify\/astral": "<11.0.5",
+                "symplify\/autowire-array-parameter": "<11.0.5",
+                "symplify\/coding-standard": "<11.0.5",
+                "symplify\/composer-json-manipulator": "<11.0.5",
+                "symplify\/config-transformer": "<11.0.5",
+                "symplify\/easy-ci": "<11.0.5",
+                "symplify\/easy-coding-standard": "<11.0.5",
+                "symplify\/easy-parallel": "<11.0.5",
+                "symplify\/monorepo-builder": "<11.0.5",
+                "symplify\/neon-config-dumper": "<11.0.5",
+                "symplify\/php-config-printer": "<11.0.5",
+                "symplify\/phpstan-extensions": "<11.0.5",
+                "symplify\/phpstan-rules": "<11.0.5",
+                "symplify\/rule-doc-generator": "<11.0.5",
+                "symplify\/rule-doc-generator-contracts": "<11.0.5",
+                "symplify\/skipper": "<11.0.5",
+                "symplify\/symfony-static-dumper": "<11.0.5",
+                "symplify\/vendor-patches": "<11.0.5"
+            },
+            "require-dev": {
+                "phpunit\/phpunit": "^9.5"
+            },
+            "bin": [
+                "bin\/easy-testing"
+            ],
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "11.1-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "MonorepoBuilder202206\\Symplify\\EasyTesting\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "MonorepoBuilder202206\\Symplify\\EasyTesting\\Tests\\": "tests"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Testing made easy",
+            "transport-options": {
+                "symlink": false,
+                "relative": true
+            },
+            "install-path": "..\/symplify\/easy-testing"
+        },
+        {
+            "name": "symplify\/package-builder",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "..\/..\/packages\/package-builder",
+                "reference": "1fe3ed1d479fb944d9993cc0ead9ea2fced61a10"
+            },
+            "require": {
+                "nette\/utils": "^3.2",
+                "php": ">=8.0",
+                "sebastian\/diff": "^4.0",
+                "symfony\/config": "^6.0",
+                "symfony\/console": "^6.0",
+                "symfony\/dependency-injection": "^6.0",
+                "symfony\/finder": "^6.0",
+                "symplify\/easy-testing": "dev-main",
+                "symplify\/symplify-kernel": "dev-main"
+            },
+            "conflict": {
+                "symplify\/astral": "<11.0.5",
+                "symplify\/autowire-array-parameter": "<11.0.5",
+                "symplify\/coding-standard": "<11.0.5",
+                "symplify\/composer-json-manipulator": "<11.0.5",
+                "symplify\/config-transformer": "<11.0.5",
+                "symplify\/easy-ci": "<11.0.5",
+                "symplify\/easy-coding-standard": "<11.0.5",
+                "symplify\/easy-parallel": "<11.0.5",
+                "symplify\/monorepo-builder": "<11.0.5",
+                "symplify\/neon-config-dumper": "<11.0.5",
+                "symplify\/php-config-printer": "<11.0.5",
+                "symplify\/phpstan-extensions": "<11.0.5",
+                "symplify\/phpstan-rules": "<11.0.5",
+                "symplify\/rule-doc-generator": "<11.0.5",
+                "symplify\/rule-doc-generator-contracts": "<11.0.5",
+                "symplify\/skipper": "<11.0.5",
+                "symplify\/smart-file-system": "<11.0.5",
+                "symplify\/symfony-static-dumper": "<11.0.5",
+                "symplify\/vendor-patches": "<11.0.5"
+            },
+            "require-dev": {
+                "phpunit\/phpunit": "^9.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "11.1-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "MonorepoBuilder202206\\Symplify\\PackageBuilder\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "MonorepoBuilder202206\\Symplify\\PackageBuilder\\Tests\\": "tests"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Dependency Injection, Console and Kernel toolkit for Symplify packages.",
+            "transport-options": {
+                "symlink": false,
+                "relative": true
+            },
+            "install-path": "..\/symplify\/package-builder"
+        },
+        {
+            "name": "symplify\/smart-file-system",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "..\/..\/packages\/smart-file-system",
+                "reference": "506d2f56da24922a2fad69c97023f2392fd81ecd"
+            },
+            "require": {
+                "nette\/utils": "^3.2",
+                "php": ">=8.0",
+                "symfony\/filesystem": "^6.0",
+                "symfony\/finder": "^6.0"
+            },
+            "conflict": {
+                "symplify\/astral": "<11.0.5",
+                "symplify\/autowire-array-parameter": "<11.0.5",
+                "symplify\/coding-standard": "<11.0.5",
+                "symplify\/composer-json-manipulator": "<11.0.5",
+                "symplify\/config-transformer": "<11.0.5",
+                "symplify\/easy-ci": "<11.0.5",
+                "symplify\/easy-coding-standard": "<11.0.5",
+                "symplify\/easy-parallel": "<11.0.5",
+                "symplify\/easy-testing": "<11.0.5",
+                "symplify\/monorepo-builder": "<11.0.5",
+                "symplify\/neon-config-dumper": "<11.0.5",
+                "symplify\/package-builder": "<11.0.5",
+                "symplify\/php-config-printer": "<11.0.5",
+                "symplify\/phpstan-extensions": "<11.0.5",
+                "symplify\/phpstan-rules": "<11.0.5",
+                "symplify\/rule-doc-generator": "<11.0.5",
+                "symplify\/rule-doc-generator-contracts": "<11.0.5",
+                "symplify\/skipper": "<11.0.5",
+                "symplify\/symfony-static-dumper": "<11.0.5",
+                "symplify\/symplify-kernel": "<11.0.5",
+                "symplify\/vendor-patches": "<11.0.5"
+            },
+            "require-dev": {
+                "nette\/finder": "^2.5",
+                "phpunit\/phpunit": "^9.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "11.1-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "MonorepoBuilder202206\\Symplify\\SmartFileSystem\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "MonorepoBuilder202206\\Symplify\\SmartFileSystem\\Tests\\": "tests"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Sanitized FileInfo with safe getRealPath() and other handy methods",
+            "transport-options": {
+                "symlink": false,
+                "relative": true
+            },
+            "install-path": "..\/symplify\/smart-file-system"
+        },
+        {
+            "name": "symplify\/symplify-kernel",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "..\/..\/packages\/symplify-kernel",
+                "reference": "c4634a77c0cb080ec99e9b3f4ce8dbc007dde379"
+            },
+            "require": {
+                "php": ">=8.0",
+                "symfony\/console": "^6.0",
+                "symfony\/dependency-injection": "^6.0",
+                "symplify\/autowire-array-parameter": "dev-main",
+                "symplify\/composer-json-manipulator": "dev-main",
+                "symplify\/package-builder": "dev-main",
+                "symplify\/smart-file-system": "dev-main",
+                "webmozart\/assert": "^1.10"
+            },
+            "conflict": {
+                "symplify\/astral": "<11.0.5",
+                "symplify\/coding-standard": "<11.0.5",
+                "symplify\/config-transformer": "<11.0.5",
+                "symplify\/easy-ci": "<11.0.5",
+                "symplify\/easy-coding-standard": "<11.0.5",
+                "symplify\/easy-parallel": "<11.0.5",
+                "symplify\/easy-testing": "<11.0.5",
+                "symplify\/monorepo-builder": "<11.0.5",
+                "symplify\/neon-config-dumper": "<11.0.5",
+                "symplify\/php-config-printer": "<11.0.5",
+                "symplify\/phpstan-extensions": "<11.0.5",
+                "symplify\/phpstan-rules": "<11.0.5",
+                "symplify\/rule-doc-generator": "<11.0.5",
+                "symplify\/rule-doc-generator-contracts": "<11.0.5",
+                "symplify\/skipper": "<11.0.5",
+                "symplify\/symfony-static-dumper": "<11.0.5",
+                "symplify\/vendor-patches": "<11.0.5"
+            },
+            "require-dev": {
+                "phpunit\/phpunit": "^9.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "11.1-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "MonorepoBuilder202206\\Symplify\\SymplifyKernel\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "MonorepoBuilder202206\\Symplify\\SymplifyKernel\\Tests\\": "tests"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Internal Kernel for Symplify packages",
+            "transport-options": {
+                "symlink": false,
+                "relative": true
+            },
+            "install-path": "..\/symplify\/symplify-kernel"
+        },
+        {
+            "name": "webmozart\/assert",
+            "version": "1.11.0",
+            "version_normalized": "1.11.0.0",
+            "source": {
+                "type": "git",
+                "url": "https:\/\/github.com\/webmozarts\/assert.git",
+                "reference": "11cb2199493b2f8a3b53e7f19068fc6aac760991"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https:\/\/api.github.com\/repos\/webmozarts\/assert\/zipball\/11cb2199493b2f8a3b53e7f19068fc6aac760991",
+                "reference": "11cb2199493b2f8a3b53e7f19068fc6aac760991",
+                "shasum": ""
+            },
+            "require": {
+                "ext-ctype": "*",
+                "php": "^7.2 || ^8.0"
+            },
+            "conflict": {
+                "phpstan\/phpstan": "<0.12.20",
+                "vimeo\/psalm": "<4.6.1 || 4.6.2"
+            },
+            "require-dev": {
+                "phpunit\/phpunit": "^8.5.13"
+            },
+            "time": "2022-06-03T18:03:27+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.10-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "MonorepoBuilder202206\\Webmozart\\Assert\\": "src\/"
+                }
+            },
+            "notification-url": "https:\/\/packagist.org\/downloads\/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bernhard Schussek",
+                    "email": "bschussek@gmail.com"
+                }
+            ],
+            "description": "Assertions to validate method input\/output with nice error messages.",
+            "keywords": [
+                "assert",
+                "check",
+                "validate"
+            ],
+            "support": {
+                "issues": "https:\/\/github.com\/webmozarts\/assert\/issues",
+                "source": "https:\/\/github.com\/webmozarts\/assert\/tree\/1.11.0"
+            },
+            "install-path": "..\/webmozart\/assert"
+        }
+    ],
+    "dev": false,
+    "dev-package-names": []
+}

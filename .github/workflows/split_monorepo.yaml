@@ -1,0 +1,35 @@
+name: Split Monorepo
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  split_monorepo:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        package:
+          - core
+          - hooks
+          - plugins-manager
+          - themes-manager
+
+    steps:
+      - uses: actions/checkout@v2
+      - id: previous-tag
+        uses: "WyriHaximus/github-action-get-previous-tag@master"
+      - name: Monorepo Split of ${{ matrix.package }}
+        uses: symplify/github-action-monorepo-split@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        with:
+          package_directory: "packages/${{ matrix.package }}"
+          repository_organization: "OpenSynergic"
+          repository_name: "${{ matrix.package }}"
+          branch: master
+          tag: ${{ steps.previous-tag.outputs.tag }}
+          user_name: "Rahman Ramsi"
+          user_email: "rahmanramsi19@gmail.com"
