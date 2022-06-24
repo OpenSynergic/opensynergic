@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symplify\MonorepoBuilder\ValueObject\Option;
+use Symplify\MonorepoBuilder\Release\ReleaseWorker\AddTagToChangelogReleaseWorker;
 use Symplify\MonorepoBuilder\Release\ReleaseWorker\PushNextDevReleaseWorker;
 use Symplify\MonorepoBuilder\Release\ReleaseWorker\PushTagReleaseWorker;
 use Symplify\MonorepoBuilder\Release\ReleaseWorker\SetCurrentMutualDependenciesReleaseWorker;
@@ -26,4 +27,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->set(UpdateReplaceReleaseWorker::class);
     $services->set(TagVersionReleaseWorker::class);
     $services->set(PushTagReleaseWorker::class);
+    // $services->set(SetNextMutualDependenciesReleaseWorker::class);
+    $services->set(UpdateBranchAliasReleaseWorker::class);
+    // $services->set(PushNextDevReleaseWorker::class);
 };
