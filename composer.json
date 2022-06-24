@@ -69,12 +69,11 @@
             }
         }
     },
-    "replace": {
-        "opensynergic/core": "0.2.7",
-        "opensynergic/hooks": "0.2.7",
-        "opensynergic/plugins-manager": "0.2.7",
-        "opensynergic/themes-manager": "0.2.7"
-    },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
 }
