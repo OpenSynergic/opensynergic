@@ -1,11 +1,7 @@
 {
     "name": "opensynergic/hooks",
     "description": "Hooks allow third-party code to intervene in the application and make modifications.",
-    "keywords": [
-        "opensynergic",
-        "laravel",
-        "laravel-hooks"
-    ],
+    "keywords": ["opensynergic", "laravel", "laravel-hooks"],
     "homepage": "https://github.com/opensynergic/hooks",
     "license": "MIT",
     "require": {
@@ -25,9 +21,7 @@
             "OpenSynergic\\Hooks\\": "src"
         }
     },
-    "autoload-dev": {
-        "psr-4": {}
-    },
+    "autoload-dev": [],
     "scripts": {
         "analyse": "vendor/bin/phpstan analyse",
         "test": "vendor/bin/pest",

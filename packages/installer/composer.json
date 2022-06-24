@@ -1,11 +1,7 @@
 {
     "name": "opensynergic/installer",
     "description": "Laravel Installer",
-    "keywords": [
-        "opensynergic",
-        "laravel",
-        "installer"
-    ],
+    "keywords": ["opensynergic", "laravel", "installer"],
     "homepage": "https://github.com/opensynergic/installer",
     "license": "MIT",
     "authors": [
@@ -36,9 +32,7 @@
             "OpenSynergic\\Installer\\Database\\Factories\\": "database/factories"
         }
     },
-    "autoload-dev": {
-        "psr-4": {}
-    },
+    "autoload-dev": [],
     "scripts": {
         "analyse": "vendor/bin/phpstan analyse",
         "test": "vendor/bin/pest",

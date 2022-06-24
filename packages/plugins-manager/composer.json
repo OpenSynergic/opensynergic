@@ -1,11 +1,7 @@
 {
     "name": "opensynergic/plugins-manager",
     "description": "Plugins allow third-party add code in the application without modifying the core code.",
-    "keywords": [
-        "opensynergic",
-        "laravel",
-        "plugins-manager"
-    ],
+    "keywords": ["opensynergic", "laravel", "plugins-manager"],
     "homepage": "https://github.com/opensynergic/plugins-manager",
     "license": "MIT",
     "authors": [
@@ -20,7 +16,7 @@
         "calebporzio/sushi": "^2.4",
         "spatie/laravel-package-tools": "^1.9.2",
         "filament/filament": "^2.0",
-        "opensynergic/hooks": "self.version"
+        "opensynergic/hooks": "^0.1.2"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.8",
@@ -36,9 +32,7 @@
             "OpenSynergic\\Plugins\\": "src"
         }
     },
-    "autoload-dev": {
-        "psr-4": {}
-    },
+    "autoload-dev": [],
     "scripts": {
         "analyse": "vendor/bin/phpstan analyse",
         "test": "vendor/bin/pest",
