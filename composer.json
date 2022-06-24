@@ -14,9 +14,11 @@
         "calebporzio/sushi": "^2.4",
         "filament/filament": "^2.0",
         "filament/spatie-laravel-media-library-plugin": "^2.12",
+        "filament/spatie-laravel-translatable-plugin": "^2.0",
         "illuminate/contracts": "^8.0|^9.0",
         "lorisleiva/laravel-actions": "^2.4",
         "php": "^8.0",
+        "spatie/laravel-enum": "^3.0",
         "spatie/laravel-package-tools": "^1.9.2",
         "spatie/valuestore": "^1.3",
         "stechstudio/filament-impersonate": "^2.5",
@@ -40,6 +42,8 @@
         "psr-4": {
             "OpenSynergic\\Core\\": "packages/core/src",
             "OpenSynergic\\Core\\Database\\Factories\\": "packages/core/database/factories",
+            "OpenSynergic\\EventManagement\\": "packages/event-management/src",
+            "OpenSynergic\\EventManagement\\Database\\Factories\\": "packages/event-management/database/factories",
             "OpenSynergic\\Hooks\\": "packages/hooks/src",
             "OpenSynergic\\Installer\\": "packages/installer/src",
             "OpenSynergic\\Installer\\Database\\Factories\\": "packages/installer/database/factories",
@@ -52,6 +56,7 @@
     "autoload-dev": {
         "psr-4": {
             "OpenSynergic\\Core\\Tests\\": "packages/core/tests",
+            "OpenSynergic\\EventManagement\\Tests\\": "packages/event-management/tests",
             "OpenSynergic\\Hooks\\Tests\\": "packages/hooks/tests",
             "OpenSynergic\\Plugins\\Tests\\": "packages/plugins-manager/tests",
             "OpenSynergic\\ThemesManager\\Tests\\": "packages/themes-manager/tests"
@@ -63,12 +68,14 @@
                 "OpenSynergic\\Plugins\\PluginsServiceProvider",
                 "OpenSynergic\\Core\\CoreServiceProvider",
                 "OpenSynergic\\Hooks\\HooksServiceProvider",
+                "OpenSynergic\\EventManagement\\EventManagementServiceProvider",
                 "OpenSynergic\\Installer\\InstallerServiceProvider",
                 "OpenSynergic\\ThemesManager\\ThemesManagerServiceProvider"
             ],
             "aliases": {
                 "Plugin": "OpenSynergic\\Plugins\\Facades\\Plugin",
                 "Hook": "OpenSynergic\\Hooks\\Facades\\Hook",
+                "EventManagement": "OpenSynergic\\EventManagement\\Facades\\EventManagement",
                 "Installer": "OpenSynergic\\Installer\\Facades\\Installer",
                 "Themes": "OpenSynergic\\ThemesManager\\Facades\\Themes"
             }
