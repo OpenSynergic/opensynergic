@@ -1,7 +1,11 @@
 {
     "name": "opensynergic/core",
     "description": " ",
-    "keywords": ["opensynergic", "laravel", "core"],
+    "keywords": [
+        "opensynergic",
+        "laravel",
+        "core"
+    ],
     "homepage": "https://github.com/opensynergic/core",
     "license": "MIT",
     "authors": [
@@ -37,9 +41,7 @@
         }
     },
     "autoload-dev": {
-        "psr-4": {
-            "OpenSynergic\\Core\\Tests\\": "tests"
-        }
+        "psr-4": {}
     },
     "scripts": {
         "analyse": "vendor/bin/phpstan analyse",
