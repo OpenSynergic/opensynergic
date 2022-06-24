@@ -21,7 +21,6 @@
             "OpenSynergic\\Hooks\\": "src"
         }
     },
-    "autoload-dev": [],
     "scripts": {
         "analyse": "vendor/bin/phpstan analyse",
         "test": "vendor/bin/pest",

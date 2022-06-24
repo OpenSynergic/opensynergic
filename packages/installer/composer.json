@@ -32,7 +32,6 @@
             "OpenSynergic\\Installer\\Database\\Factories\\": "database/factories"
         }
     },
-    "autoload-dev": [],
     "scripts": {
         "analyse": "vendor/bin/phpstan analyse",
         "test": "vendor/bin/pest",
