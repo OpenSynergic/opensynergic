@@ -8,16 +8,16 @@ use OpenSynergic\Installer\Contracts\Pipe;
 
 class MigrateDatabase implements Pipe
 {
-  public function handle($content, Closure $next)
-  {
-    config(['database.connections.mysql.database' => $content['DB_DATABASE']]);
+    public function handle($content, Closure $next)
+    {
+        config(['database.connections.mysql.database' => $content['DB_DATABASE']]);
 
-    \DB::disconnect();
+        \DB::disconnect();
 
-    Artisan::call('migrate:fresh', [
-      '--force' => true
-    ]);
+        Artisan::call('migrate:fresh', [
+            '--force' => true
+        ]);
 
-    return $next($content);
-  }
+        return $next($content);
+    }
 }

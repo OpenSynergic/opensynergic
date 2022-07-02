@@ -28,7 +28,7 @@ class InstallerServiceProvider extends PackageServiceProvider
         Livewire::component($installer::getName(), $installer);
 
         $this->app->singleton(InstallerManager::class, function (): InstallerManager {
-            return new InstallerManager;
+            return new InstallerManager();
         });
     }
 }

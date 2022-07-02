@@ -234,7 +234,6 @@ class RoleResource extends Resource
                         ->offIcon('heroicon-s-lock-closed')
                         ->reactive()
                         ->afterStateUpdated(function (Closure $set, Closure $get, $state) use ($entity) {
-
                             collect(config('filament-shield.prefixes.resource'))->each(function ($permission) use ($set, $entity, $state) {
                                 $set($permission . '_' . $entity, $state);
                             });
@@ -267,7 +266,9 @@ class RoleResource extends Resource
                 ->label(Str::headline($permission))
                 ->extraAttributes(['class' => 'text-primary-600'])
                 ->afterStateHydrated(function (Closure $set, Closure $get, $record) use ($entity, $permission) {
-                    if (is_null($record)) return;
+                    if (is_null($record)) {
+                        return;
+                    }
 
                     $set($permission . '_' . $entity, $record->checkPermissionTo($permission . '_' . $entity));
 
@@ -277,7 +278,6 @@ class RoleResource extends Resource
                 })
                 ->reactive()
                 ->afterStateUpdated(function (Closure $set, Closure $get, $state) use ($entity) {
-
                     static::refreshResourceEntityStateAfterUpdate($set, $get, Str::of($entity));
 
                     if (!$state) {
@@ -413,7 +413,9 @@ class RoleResource extends Resource
                         ->label(Str::of($page)->after(config('filament-shield.prefixes.page') . '_')->headline())
                         ->inline()
                         ->afterStateHydrated(function (Closure $set, Closure $get, $record) use ($page) {
-                            if (is_null($record)) return;
+                            if (is_null($record)) {
+                                return;
+                            }
 
                             $set($page, $record->checkPermissionTo($page));
 
@@ -421,7 +423,6 @@ class RoleResource extends Resource
                         })
                         ->reactive()
                         ->afterStateUpdated(function (Closure $set, Closure $get, $state) {
-
                             if (!$state) {
                                 $set('select_all', false);
                             }
@@ -468,7 +469,9 @@ class RoleResource extends Resource
                         ->label(Str::of($widget)->after(config('filament-shield.prefixes.widget') . '_')->headline())
                         ->inline()
                         ->afterStateHydrated(function (Closure $set, Closure $get, $record) use ($widget) {
-                            if (is_null($record)) return;
+                            if (is_null($record)) {
+                                return;
+                            }
 
                             $set($widget, $record->checkPermissionTo($widget));
 
@@ -476,7 +479,6 @@ class RoleResource extends Resource
                         })
                         ->reactive()
                         ->afterStateUpdated(function (Closure $set, Closure $get, $state) {
-
                             if (!$state) {
                                 $set('select_all', false);
                             }
@@ -520,7 +522,9 @@ class RoleResource extends Resource
                         ->label(Str::of($customPermission)->headline())
                         ->inline()
                         ->afterStateHydrated(function (Closure $set, Closure $get, $record) use ($customPermission) {
-                            if (is_null($record)) return;
+                            if (is_null($record)) {
+                                return;
+                            }
 
                             $set($customPermission, $record->checkPermissionTo($customPermission));
 
@@ -528,7 +532,6 @@ class RoleResource extends Resource
                         })
                         ->reactive()
                         ->afterStateUpdated(function (Closure $set, Closure $get, $state) {
-
                             if (!$state) {
                                 $set('select_all', false);
                             }

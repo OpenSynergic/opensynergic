@@ -3,7 +3,7 @@
 namespace OpenSynergic\Core\Filament\Resources;
 
 use App\Models\User;
-use Filament\Forms\Components\BelongsToManyCheckboxList;
+use Filament\Forms\Components\CheckboxList;
 use Filament\Tables;
 use Illuminate\Support\Str;
 use Filament\Resources\Form;
@@ -17,7 +17,6 @@ use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use OpenSynergic\Core\Filament\Resources\UserResource\Pages;
-use OpenSynergic\Core\Filament\Resources\UserResource\RelationManagers;
 use OpenSynergic\Hooks\Facades\Hook;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\Permission\Traits\HasRoles;
@@ -26,6 +25,7 @@ use STS\FilamentImpersonate\Impersonate;
 class UserResource extends Resource
 {
     protected static ?string $model = User::class;
+    // protected static ?string $modelLabel = "Uasdsaa";
 
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
@@ -41,7 +41,7 @@ class UserResource extends Resource
 
     protected static function getNavigationLabel(): string
     {
-        return __('core::resources/user.navigation.label'); 
+        return __('core::resources/user.navigation.label');
     }
 
 
@@ -78,7 +78,7 @@ class UserResource extends Resource
                 ->password()
                 ->dehydrated(false)
                 ->maxLength(255),
-            BelongsToManyCheckboxList::make('roles')
+            CheckboxList::make('roles')
                 ->relationship('roles', 'name')
                 ->hidden(fn () => !in_array(HasRoles::class, class_uses_recursive(static::getModel())))
                 ->columns([

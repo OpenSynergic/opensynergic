@@ -8,16 +8,16 @@ use Illuminate\Database\Eloquent\Builder;
 
 class Users extends Table
 {
-  protected function getTableQuery(): Builder
-  {
-    return User::query();
-  }
+    protected function getTableQuery(): Builder
+    {
+        return User::query();
+    }
 
-  protected function getTableColumns(): array
-  {
-    return [
+    protected function getTableColumns(): array
+    {
+        return [
       TextColumn::make('name'),
       TextColumn::make('email'),
     ];
-  }
+    }
 }

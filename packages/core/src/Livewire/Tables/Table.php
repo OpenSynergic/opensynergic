@@ -1,6 +1,5 @@
 <?php
 
-
 namespace OpenSynergic\Core\Livewire\Tables;
 
 use Filament\Tables\Concerns\InteractsWithTable;
@@ -9,10 +8,10 @@ use Livewire\Component;
 
 abstract class Table extends Component implements HasTable
 {
-  use InteractsWithTable;
+    use InteractsWithTable;
 
-  public function render()
-  {
-    return view('core::livewire.tables.table');
-  }
+    public function render()
+    {
+        return view('core::livewire.tables.table');
+    }
 }

@@ -21,6 +21,10 @@ class CoreServiceProvider extends PluginServiceProvider
         Tables\Roles::class,
     ];
 
+    protected array $styles = [
+        'core' => __DIR__ . '/../dist/core.css',
+    ];
+
     public function packageConfigured(Package $package): void
     {
         $package->hasMigration('create_core_table');

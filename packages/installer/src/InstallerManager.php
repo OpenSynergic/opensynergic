@@ -2,16 +2,10 @@
 
 namespace OpenSynergic\Installer;
 
-use Closure;
 use Filament\Forms\Components\Checkbox;
-use Filament\Forms\Components\Placeholder;
-use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Wizard;
 use Filament\Pages\Actions\Action;
-use Illuminate\Support\Facades\Event;
-use Illuminate\Support\Facades\Hash;
-use OpenSynergic\Installer\Events\InstallerInstalling;
 use OpenSynergic\Installer\Rules\ConnectDatabase;
 
 class InstallerManager
@@ -40,7 +34,7 @@ class InstallerManager
         ->icon('heroicon-o-database')
         ->schema([
           TextInput::make('DB_DATABASE')
-            ->rule(new ConnectDatabase)
+            ->rule(new ConnectDatabase())
             ->label('Database Name')
             ->required(),
           TextInput::make('DB_USERNAME')
