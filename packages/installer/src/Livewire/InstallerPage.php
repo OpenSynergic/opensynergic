@@ -13,75 +13,75 @@ use OpenSynergic\Installer\Pipe\Wizard\UpdateEnvData;
 
 class InstallerPage extends Component implements HasForms
 {
-  use InteractsWithForms;
+    use InteractsWithForms;
 
-  public $data;
+    public $data;
 
-  protected static string $layout = 'installer::components.layouts.card';
+    protected static string $layout = 'installer::components.layouts.card';
 
-  protected static string $view = 'installer::installer';
+    protected static string $view = 'installer::installer';
 
-  public function mount(): void
-  {
-    if (config('installer.installed')) {
-      redirect()->intended(Filament::getUrl());
+    public function mount(): void
+    {
+        if (config('installer.installed')) {
+            redirect()->intended(Filament::getUrl());
+        }
+
+        $this->form->fill();
     }
 
-    $this->form->fill();
-  }
+    public function render(): View
+    {
+        return view(static::$view, $this->getViewData())
+            ->layout(static::$layout, $this->getLayoutData());
+    }
 
-  public function render(): View
-  {
-    return view(static::$view, $this->getViewData())
-      ->layout(static::$layout, $this->getLayoutData());
-  }
+    public function getTitle(): string
+    {
+        return config('installer.page.title', 'Wizard Installer');
+    }
 
-  public function getTitle(): string
-  {
-    return config('installer.page.title', 'Wizard Installer');
-  }
+    protected function getFormStatePath(): string
+    {
+        return 'data';
+    }
 
-  protected function getFormStatePath(): string
-  {
-    return 'data';
-  }
+    protected function getFormSchema(): array
+    {
+        $wizard = Installer::getWizard();
 
-  protected function getFormSchema(): array
-  {
-    $wizard = Installer::getWizard();
+        return [
+            $wizard
+                ->steps(Installer::getSteps()),
+        ];
+    }
 
-    return [
-      $wizard
-        ->steps(Installer::getSteps()),
-    ];
-  }
+    public function install()
+    {
+        app(Pipeline::class)
+            ->send($this->form->getState())
+            ->through($this->getActions())
+            ->thenReturn();
 
-  public function install()
-  {
-    app(Pipeline::class)
-      ->send($this->form->getState())
-      ->through($this->getActions())
-      ->thenReturn();
+        app(UpdateEnvData::class)->updateEnv(['APP_INSTALLED' => 'true']);
 
-    app(UpdateEnvData::class)->updateEnv(['APP_INSTALLED' => 'true']);
+        return $this->redirectRoute(config('installer.installing.redirect'));
+    }
 
-    return $this->redirectRoute(config('installer.installing.redirect'));
-  }
+    protected function getActions(): array
+    {
+        return Installer::getActions();
+    }
 
-  protected function getActions(): array
-  {
-    return Installer::getActions();
-  }
+    protected function getViewData(): array
+    {
+        return [];
+    }
 
-  protected function getViewData(): array
-  {
-    return [];
-  }
-
-  protected function getLayoutData(): array
-  {
-    return [
-      'title' => $this->getTitle(),
-    ];
-  }
+    protected function getLayoutData(): array
+    {
+        return [
+            'title' => $this->getTitle(),
+        ];
+    }
 }

@@ -15,9 +15,9 @@ use OpenSynergic\Installer\Livewire\InstallerPage;
 */
 
 if (!config('installer.installed')) {
-  Route::domain(config('filament.domain'))
-    ->middleware(config('filament.middleware.base'))
-    ->group(function () {
-      Route::get(config('installer.path'), InstallerPage::class)->name('installer.wizard');
-    });
+    Route::domain(config('filament.domain'))
+        ->middleware(config('filament.middleware.base'))
+        ->group(function () {
+            Route::get(config('installer.path'), InstallerPage::class)->name('installer.wizard');
+        });
 }

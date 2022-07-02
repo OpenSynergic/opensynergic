@@ -6,5 +6,5 @@ use Illuminate\Foundation\Events\Dispatchable;
 
 class InstallerInstalling
 {
-  use Dispatchable;
+    use Dispatchable;
 }

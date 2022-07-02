@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.filament-resources-event-view-record-page .filament-tables-container {
+  @apply border-0 shadow-none;
+}

@@ -4,22 +4,24 @@ namespace OpenSynergic\Core\Filament\Pages;
 
 use App\Models\User;
 use Filament\Facades\Filament;
-use Filament\Forms\Components\{Grid, Section, SpatieMediaLibraryFileUpload, TextInput};
+use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Pages\Actions\Action;
 use Filament\Pages\Concerns\HasFormActions;
 use Filament\Pages\Page;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use OpenSynergic\Hooks\Facades\Hook;
 
 class Profile extends Page implements HasForms
 {
-    use InteractsWithForms, HasFormActions;
+    use InteractsWithForms;
+    use HasFormActions;
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
 

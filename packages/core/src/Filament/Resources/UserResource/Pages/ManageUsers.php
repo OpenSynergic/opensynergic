@@ -6,7 +6,6 @@ use OpenSynergic\Core\Filament\Resources\UserResource;
 use Filament\Resources\Pages\ManageRecords;
 use Filament\Pages\Actions;
 
-
 class ManageUsers extends ManageRecords
 {
     protected static string $resource = UserResource::class;

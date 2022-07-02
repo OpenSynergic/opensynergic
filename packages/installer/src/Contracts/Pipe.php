@@ -6,5 +6,5 @@ use Closure;
 
 interface Pipe
 {
-  public function handle($content, Closure $next);
+    public function handle($content, Closure $next);
 }

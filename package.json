@@ -1,0 +1,21 @@
+{
+  "name": "opensynergic",
+  "scripts": {
+    "build": "mix --production",
+    "watch": "mix watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OpenSynergic/opensynergic.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OpenSynergic/opensynergic/issues"
+  },
+  "homepage": "https://github.com/OpenSynergic/opensynergic#readme",
+  "devDependencies": {
+    "laravel-mix": "^6.0.49"
+  }
+}
