@@ -2,6 +2,7 @@
 
 namespace OpenSynergic\Plugins\Filament\Pages;
 
+use Closure;
 use ZipArchive;
 use Filament\Tables;
 use ZanySoft\Zip\Zip;
@@ -13,8 +14,11 @@ use Illuminate\Support\Str;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\Storage;
 use Filament\Forms\Components\FileUpload;
+use Filament\Tables\Actions\BulkAction;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TernaryFilter;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Log;
 use OpenSynergic\Plugins\Models\Plugin as PluginModel;
 use OpenSynergic\Plugins\Facades\Plugin as FacadesPlugin;
@@ -135,8 +139,51 @@ class Plugins extends Page implements Tables\Contracts\HasTable
     protected function getTableFilters(): array
     {
         return [
-            TernaryFilter::make('enabled')
+            TernaryFilter::make('enabled'),
+            SelectFilter::make('Type')
+                ->options([
+                    1 => 'Payment',
+                    2 => 'Utilities',
+                    3 => 'Indexing',
+                    4 => 'Publication'
+                ])
         ];
+    }
+
+    protected function getTableBulkActions(): array
+    {
+        return [
+            BulkAction::make('activate')
+                ->action(function (Collection $records) {
+                    $records->each(fn (PluginModel $plugin ) => $this->togglePlugin($plugin, true));
+
+                    $this->notify('success', __('Plugin activated'));
+                })
+                ->deselectRecordsAfterCompletion()
+                ->requiresConfirmation(),
+            BulkAction::make('deactivate')
+                ->action(function (Collection $records) {
+                    $records->each(fn (PluginModel $plugin ) => $this->togglePlugin($plugin, false));
+
+                    $this->notify('success', __('Plugin deactivated'));
+                })
+                ->deselectRecordsAfterCompletion()
+                ->requiresConfirmation(),
+            BulkAction::make('remove')
+        ];
+    }
+
+    protected function togglePlugin(PluginModel $plugin, bool $isEnabled)
+    {
+        try {
+            FacadesPlugin::init($plugin->getPlugin(), false);
+
+            $plugin->enabled = $isEnabled;
+        } catch (\Throwable $th) {
+            Log::error($th);
+            $this->notify('danger', __('plugins-manager::page.exceptions.enabled_plugin_failed'));
+            return;
+        }
     }
 
     // protected function getTableFiltersLayout(): ?string
