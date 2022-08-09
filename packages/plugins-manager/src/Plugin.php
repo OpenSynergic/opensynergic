@@ -5,6 +5,7 @@ namespace OpenSynergic\Plugins;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Traits\Macroable;
+use OpenSynergic\Plugins\Enums\PluginType;
 use OpenSynergic\Plugins\Facades\Plugin as FacadesPlugin;
 
 abstract class Plugin
@@ -13,8 +14,12 @@ abstract class Plugin
 
     protected string $pluginPath;
     protected string $pluginName;
+    protected string $pluginAuthor;
+    protected string $pluginVersion;
     protected array $pluginTags = [];
     protected array $adminPages = [];
+    protected array $adminStyles = [];
+    protected array $adminScripts = [];
     protected array $adminResources = [];
     protected array $adminWidgets = [];
 
@@ -23,6 +28,10 @@ abstract class Plugin
     abstract public function getName(): string;
 
     abstract public function getDescription(): string;
+
+    abstract public function getType(): PluginType;
+
+    abstract public function getDetail(): string;
 
     public function getPluginTags(): array
     {
@@ -45,6 +54,16 @@ abstract class Plugin
         return $this->pluginName;
     }
 
+    public function getPluginAuthor()
+    {
+        return $this->pluginAuthor;
+    }
+
+    public function getPluginVersion()
+    {
+        return $this->pluginVersion;
+    }
+
     public function getAdminPages()
     {
         return $this->adminPages;
@@ -58,6 +77,16 @@ abstract class Plugin
     public function getAdminWidgets()
     {
         return $this->adminWidgets;
+    }
+
+    public function getAdminStyles()
+    {
+        return $this->adminStyles;
+    }
+
+    public function getAdminScripts()
+    {
+        return $this->adminScripts;
     }
 
     public function getSetting($name)

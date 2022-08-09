@@ -18,9 +18,10 @@
     "require": {
         "php": "^8.0",
         "calebporzio/sushi": "^2.4",
-        "spatie/laravel-package-tools": "^1.9.2",
         "filament/filament": "^2.0",
-        "opensynergic/hooks": "self.version"
+        "opensynergic/hooks": "self.version",
+        "spatie/laravel-enum": "^3.0",
+        "spatie/laravel-package-tools": "^1.9.2"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.8",

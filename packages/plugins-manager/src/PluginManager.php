@@ -107,4 +107,22 @@ class PluginManager
             ->values()
             ->toArray();
     }
+
+    public function getPluginAdminStyles(): array
+    {
+        return collect($this->plugins)
+            ->filter(fn (Plugin $plugin) => $plugin->isEnabled())
+            ->map(fn (Plugin $plugin) => $plugin->getAdminStyles())
+            ->flatten()
+            ->toArray();
+    }
+
+    public function getPluginAdminScripts(): array
+    {
+        return collect($this->plugins)
+            ->filter(fn (Plugin $plugin) => $plugin->isEnabled())
+            ->map(fn (Plugin $plugin) => $plugin->getAdminScripts())
+            ->flatten()
+            ->toArray();
+    }
 }

@@ -15,13 +15,17 @@ use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\Storage;
 use Filament\Forms\Components\FileUpload;
 use Filament\Tables\Actions\BulkAction;
+use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TernaryFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Log;
+use OpenSynergic\Plugins\Enums\PluginType;
+use OpenSynergic\Plugins\Enums\TypeEnum;
 use OpenSynergic\Plugins\Models\Plugin as PluginModel;
 use OpenSynergic\Plugins\Facades\Plugin as FacadesPlugin;
+use OpenSynergic\Plugins\Plugin;
 
 class Plugins extends Page implements Tables\Contracts\HasTable
 {
@@ -110,7 +114,8 @@ class Plugins extends Page implements Tables\Contracts\HasTable
                 ->extraAttributes(['class' => 'font-bold'])
                 ->searchable()
                 ->sortable(),
-            Tables\Columns\TextColumn::make('description'),
+            Tables\Columns\TextColumn::make('description')
+                ->view('plugins-manager::filament.tables.columns.descriptions'),
             Tables\Columns\ViewColumn::make('enabled')
                 ->view('plugins-manager::filament.tables.columns.switch-column')
                 ->action(function (PluginModel $record) {
@@ -140,13 +145,9 @@ class Plugins extends Page implements Tables\Contracts\HasTable
     {
         return [
             TernaryFilter::make('enabled'),
-            SelectFilter::make('Type')
-                ->options([
-                    1 => 'Payment',
-                    2 => 'Utilities',
-                    3 => 'Indexing',
-                    4 => 'Publication'
-                ])
+            SelectFilter::make('type')
+                ->options(PluginType::toArray())
+                ->query(fn (Builder $query, array $data) => !empty($data['value']) ? $query->where('type', $data['value']) : $query)
         ];
     }
 

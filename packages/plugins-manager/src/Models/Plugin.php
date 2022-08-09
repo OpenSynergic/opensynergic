@@ -4,6 +4,7 @@ namespace OpenSynergic\Plugins\Models;
 
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
+use OpenSynergic\Plugins\Enums\PluginType;
 use OpenSynergic\Plugins\Facades\Plugin as FacadesPlugin;
 use Sushi\Sushi;
 
@@ -11,16 +12,27 @@ class Plugin extends Model
 {
     use Sushi;
 
+    protected $cast = [
+        'type' => PluginType::class
+    ];
+
     public function getRows()
     {
         return collect(FacadesPlugin::getPlugins())
             ->map(fn ($plugin) => [
                 'name' => $plugin->getName(),
                 'pluginName' => $plugin->getPluginName(),
-                'description' => $plugin->getDescription(),
+                // 'description' => $plugin->getDescription(),
+                'description' => collect([
+                    'author' => $plugin->getPluginAuthor(),
+                    'detail' => $plugin->getDescription(),
+                    'version' => $plugin->getPluginVersion(),
+                    'simple_description' => $plugin->getDescription()
+                ])->toJson(),
                 'path' => $plugin->getPluginPath(),
                 'class' => $plugin::class,
                 'enabled' => $plugin->isEnabled(),
+                'type' => $plugin->gettype()
             ])
             ->values()
             ->toArray();

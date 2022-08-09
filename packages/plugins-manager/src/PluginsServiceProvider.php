@@ -17,6 +17,10 @@ class PluginsServiceProvider extends PluginServiceProvider
         Plugins::class,
     ];
 
+    protected array $scripts = [];
+
+    protected array $styles = [];
+
     public function configurePackage(Package $package): void
     {
         parent::configurePackage($package);
@@ -82,5 +86,20 @@ class PluginsServiceProvider extends PluginServiceProvider
     protected function getResources(): array
     {
         return array_merge($this->resources, PluginFacade::getPluginAdminResources());
+    }
+
+    protected function getWidgets(): array
+    {
+        return array_merge($this->widgets, PluginFacade::getPluginAdminWidgets());
+    }
+
+    protected function getStyles(): array
+    {
+        return array_merge($this->styles, PluginFacade::getPluginAdminStyles());
+    }
+
+    protected function getScripts(): array
+    {
+        return array_merge($this->scripts, PluginFacade::getPluginAdminScripts());
     }
 }
