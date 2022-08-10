@@ -19,7 +19,9 @@ class PluginsServiceProvider extends PluginServiceProvider
 
     protected array $scripts = [];
 
-    protected array $styles = [];
+    protected array $styles = [
+        'plugins-managers-styles' => __DIR__ . '/../dist/css/app.css'
+    ];
 
     public function configurePackage(Package $package): void
     {
