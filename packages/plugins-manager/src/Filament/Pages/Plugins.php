@@ -37,19 +37,29 @@ class Plugins extends Page implements Tables\Contracts\HasTable
 
     protected static ?string $navigationGroup = 'Plugins';
 
+    public string $tab = 'all';
+
+    public int $countActivate = 0;
+
+    public int $countDeactivate = 0;
+    
     public $form;
+
+    public function mount()
+    {
+        $this->countActivate = $this->getPluginQuery('activate')->count();
+        $this->countDeactivate = $this->getPluginQuery('deactivate')->count();
+    }
 
     protected function getTitle(): string
     {
         return __('plugins-manager::page.title');
     }
 
-
     protected static function getNavigationGroup(): ?string
     {
         return __('plugins-manager::page.navigationGroup');
     }
-
 
     protected static function getNavigationBadge(): ?string
     {
@@ -58,7 +68,23 @@ class Plugins extends Page implements Tables\Contracts\HasTable
 
     protected function getTableQuery(): Builder
     {
-        return PluginModel::query();
+        return $this->getPluginQuery($this->tab);
+    }
+
+    public function updatingTab($value): void
+    {
+        $this->resetPage();
+    }
+
+    protected function getPluginQuery($tab): Builder
+    {
+        return PluginModel::query()
+            ->when($tab === 'all', fn (Builder $query) => $query)
+            ->when($tab === 'activate', fn (Builder $query) => $query->where('enabled', true))
+            ->when($tab === 'deactivate', fn (Builder $query) => $query->where('enabled', false))
+            ->when($tab === 'drop-in', function (Builder $query) {
+                return $query;
+            });
     }
 
     protected function getActions(): array
@@ -110,11 +136,12 @@ class Plugins extends Page implements Tables\Contracts\HasTable
     protected function getTableColumns(): array
     {
         return [
-            Tables\Columns\TextColumn::make('name')
+            Tables\Columns\ViewColumn::make('name')
                 ->extraAttributes(['class' => 'font-bold'])
                 ->searchable()
-                ->sortable(),
-            Tables\Columns\TextColumn::make('description')
+                ->sortable()
+                ->view('plugins-manager::filament.tables.columns.name'),
+            Tables\Columns\ViewColumn::make('description')
                 ->view('plugins-manager::filament.tables.columns.descriptions'),
             Tables\Columns\ViewColumn::make('enabled')
                 ->view('plugins-manager::filament.tables.columns.switch-column')
@@ -144,7 +171,7 @@ class Plugins extends Page implements Tables\Contracts\HasTable
     protected function getTableFilters(): array
     {
         return [
-            TernaryFilter::make('enabled'),
+            // TernaryFilter::make('enabled'),
             SelectFilter::make('type')
                 ->options(PluginType::toArray())
                 ->query(fn (Builder $query, array $data) => !empty($data['value']) ? $query->where('type', $data['value']) : $query)
@@ -220,7 +247,8 @@ class Plugins extends Page implements Tables\Contracts\HasTable
 
                     $this->notify('success', __('plugins-manager::page.success.uninstall'));
                     return redirect(request()->header('Referer'));
-                })
+                }),
+            Tables\Actions\ViewAction::make()
         ];
     }
 }

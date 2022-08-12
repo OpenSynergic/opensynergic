@@ -20,19 +20,16 @@ class Plugin extends Model
     {
         return collect(FacadesPlugin::getPlugins())
             ->map(fn ($plugin) => [
-                'name' => $plugin->getName(),
-                'pluginName' => $plugin->getPluginName(),
-                // 'description' => $plugin->getDescription(),
-                'description' => collect([
-                    'author' => $plugin->getPluginAuthor(),
-                    'detail' => $plugin->getDescription(),
-                    'version' => $plugin->getPluginVersion(),
-                    'simple_description' => $plugin->getDescription()
-                ])->toJson(),
-                'path' => $plugin->getPluginPath(),
-                'class' => $plugin::class,
-                'enabled' => $plugin->isEnabled(),
-                'type' => $plugin->gettype()
+                'name'        => $plugin->getName(),
+                'pluginName'  => $plugin->getPluginName(),
+                'description' => $plugin->getDescription(),
+                'author'      => $plugin->getPluginAuthor(),
+                'detail'      => $plugin->getDescription(),
+                'version'     => $plugin->getPluginVersion(),
+                'path'        => $plugin->getPluginPath(),
+                'class'       => $plugin::class,
+                'enabled'     => $plugin->isEnabled(),
+                'type'        => $plugin->gettype()
             ])
             ->values()
             ->toArray();
