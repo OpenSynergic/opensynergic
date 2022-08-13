@@ -27,9 +27,10 @@ class Plugin extends Model
                 'detail'      => $plugin->getDescription(),
                 'version'     => $plugin->getPluginVersion(),
                 'path'        => $plugin->getPluginPath(),
-                'class'       => $plugin::class,
                 'enabled'     => $plugin->isEnabled(),
-                'type'        => $plugin->gettype()
+                'dropIn'     => $plugin->isDropIn(),
+                'type'        => $plugin->gettype(),
+                'class'       => $plugin::class
             ])
             ->values()
             ->toArray();

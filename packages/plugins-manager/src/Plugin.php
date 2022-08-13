@@ -133,4 +133,9 @@ abstract class Plugin
     {
         $this->setEnabled(!$this->isEnabled());
     }
+
+    public function isDropIn(): bool
+    {
+        return !empty($this->getSetting('drop-in'));
+    }
 }

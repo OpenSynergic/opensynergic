@@ -42,6 +42,8 @@ class Plugins extends Page implements Tables\Contracts\HasTable
     public int $countActivate = 0;
 
     public int $countDeactivate = 0;
+
+    public int $countDropIn = 0;
     
     public $form;
 
@@ -49,6 +51,12 @@ class Plugins extends Page implements Tables\Contracts\HasTable
     {
         $this->countActivate = $this->getPluginQuery('activate')->count();
         $this->countDeactivate = $this->getPluginQuery('deactivate')->count();
+        $this->countDropIn = $this->getPluginQuery('drop-in')->count();
+    }
+
+    public function updatingTab($value): void
+    {
+        $this->resetPage();
     }
 
     protected function getTitle(): string
@@ -71,20 +79,13 @@ class Plugins extends Page implements Tables\Contracts\HasTable
         return $this->getPluginQuery($this->tab);
     }
 
-    public function updatingTab($value): void
-    {
-        $this->resetPage();
-    }
-
     protected function getPluginQuery($tab): Builder
     {
         return PluginModel::query()
             ->when($tab === 'all', fn (Builder $query) => $query)
             ->when($tab === 'activate', fn (Builder $query) => $query->where('enabled', true))
             ->when($tab === 'deactivate', fn (Builder $query) => $query->where('enabled', false))
-            ->when($tab === 'drop-in', function (Builder $query) {
-                return $query;
-            });
+            ->when($tab === 'drop-in', fn (Builder $query) => $query->where('dropIn', true) );
     }
 
     protected function getActions(): array
@@ -157,6 +158,8 @@ class Plugins extends Page implements Tables\Contracts\HasTable
                     } catch (\Throwable $th) {
                         Log::error($th);
                         $this->notify('danger', __('plugins-manager::page.exceptions.enabled_plugin_failed'));
+
+                        $plugin->setSetting('drop-in', true);
                         return;
                     }
 
@@ -171,7 +174,6 @@ class Plugins extends Page implements Tables\Contracts\HasTable
     protected function getTableFilters(): array
     {
         return [
-            // TernaryFilter::make('enabled'),
             SelectFilter::make('type')
                 ->options(PluginType::toArray())
                 ->query(fn (Builder $query, array $data) => !empty($data['value']) ? $query->where('type', $data['value']) : $query)
@@ -210,14 +212,11 @@ class Plugins extends Page implements Tables\Contracts\HasTable
         } catch (\Throwable $th) {
             Log::error($th);
             $this->notify('danger', __('plugins-manager::page.exceptions.enabled_plugin_failed'));
+
+            $plugin->setSetting('drop-in', true);
             return;
         }
     }
-
-    // protected function getTableFiltersLayout(): ?string
-    // {
-    //     return Layout::AboveContent;
-    // }
 
     protected function getTableActions(): array
     {
@@ -247,8 +246,7 @@ class Plugins extends Page implements Tables\Contracts\HasTable
 
                     $this->notify('success', __('plugins-manager::page.success.uninstall'));
                     return redirect(request()->header('Referer'));
-                }),
-            Tables\Actions\ViewAction::make()
+                })
         ];
     }
 }
