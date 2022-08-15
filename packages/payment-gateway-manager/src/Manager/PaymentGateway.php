@@ -13,8 +13,7 @@ class PaymentGateway
 
     public function __construct()
     {
-        $this->table('settings');
-        $this->register(new BankTransfer());
+        $this->table(config('payment-gateways.table') ?? 'settings');
     }
 
     public function getGateways()
@@ -32,9 +31,20 @@ class PaymentGateway
         return $this->table;
     }
 
-    public function register(PaymentGatewayContracts $gateway)
+    public function register(string|array $classes): void
     {
-        $this->gateways[$gateway->getSlug()] = $gateway;
+        if (!is_array($classes) ) {
+            $classes = (array) $classes;
+        }
+
+        foreach($classes as $class) {
+            $this->setPaymentGetways(new $class());
+        }
+    }
+
+    protected function setPaymentGetways(PaymentGatewayContracts $gateway)
+    {
+        $this->gateways[$gateway::class] = $gateway;
     }
 
     public function getPaymentGetways(): array

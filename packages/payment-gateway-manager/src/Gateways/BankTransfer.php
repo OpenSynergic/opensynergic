@@ -4,6 +4,7 @@ namespace OpenSynergic\PaymentGateway\Gateways;
 
 use OpenSynergic\PaymentGateway\Contracts\PaymentGateway;
 use OpenSynergic\PaymentGateway\Enums\PaymentGatewayType;
+use OpenSynergic\PaymentGateway\Filament\Pages\BankTransfer as PagesBankTransfer;
 
 class BankTransfer extends PaymentGateway
 {
@@ -19,5 +20,10 @@ class BankTransfer extends PaymentGateway
     public function type(): PaymentGatewayType
     {
         return PaymentGatewayType::manually();
+    }
+
+    public function getUrl()
+    {
+        return PagesBankTransfer::getRouteName();
     }
 }

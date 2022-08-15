@@ -18,6 +18,7 @@ class PaymentGateway extends Model
                 'slug' => $gateway->getSlug(),
                 'name' => $gateway->getName(),
                 'type' => $gateway->type(),
+                'url' => $gateway->getUrl(),
                 'description' => $gateway->getDescription()
             ])
             ->values()

@@ -49,7 +49,5 @@
                 "PaymentGateway": "OpenSynergic\\PaymentGateway\\Facades\\PaymentGateway"
             }
         }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }

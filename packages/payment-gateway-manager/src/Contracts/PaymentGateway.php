@@ -15,6 +15,8 @@ abstract class PaymentGateway
 
     abstract public function type(): PaymentGatewayType;
 
+    abstract public function getUrl();
+
     public function getName(): string
     {
         return $this->name;

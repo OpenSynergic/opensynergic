@@ -3,7 +3,6 @@
 namespace OpenSynergic\PaymentGateway;
 
 use Filament\PluginServiceProvider;
-use OpenSynergic\PaymentGateway\Contracts\PaymentGateway as PaymentGatewayContracts;
 use OpenSynergic\PaymentGateway\Facades\PaymentGateway as FacadesPaymentGateway;
 use OpenSynergic\PaymentGateway\Filament\Pages\Settings\PaymentGateway;
 use OpenSynergic\PaymentGateway\Gateways\BankTransfer;
@@ -32,22 +31,16 @@ class PaymentGatewayServiceProvider extends PluginServiceProvider
     {
         parent::packageRegistered();
 
-        $this->app->beforeResolving('filament', function () {
+        $this->app->beforeResolving('filament', function (): void {
             $this->app->make(PaymentGatewayManager::class);
         });
 
         $this->app->resolving(PaymentGatewayManager::class, function (): void {
-            $this->discoverPlugins();
+            FacadesPaymentGateway::register(BankTransfer::class);
         });
 
-        $this->app->scoped(PaymentGatewayManager::class, function (): PaymentGatewayManager {
+        $this->app->singleton(PaymentGatewayManager::class, function (): PaymentGatewayManager {
             return new PaymentGatewayManager();
         });
-    }
-
-    public function discoverPlugins(): void
-    {
-        // FacadesPaymentGateway::register();
-        // dd(collect(get_declared_classes())->filter(fn ($class) => $class == PaymentGatewayContracts::class));
     }
 }

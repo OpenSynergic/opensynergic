@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '3b7fdb2637bcb74650f824a3e404d53637871562',
+        'reference' => '2fe38a0d9feaf655f53f7ce8db83ac54c602355d',
         'name' => 'opensynergic/payment-gateway-manager',
         'dev' => true,
     ),
@@ -664,7 +664,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '3b7fdb2637bcb74650f824a3e404d53637871562',
+            'reference' => '2fe38a0d9feaf655f53f7ce8db83ac54c602355d',
             'dev_requirement' => false,
         ),
         'orchestra/testbench' => array(
@@ -928,8 +928,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0|3.0',
-                1 => '1.0.0 || 2.0.0 || 3.0.0',
+                0 => '1.0.0 || 2.0.0 || 3.0.0',
+                1 => '1.0|2.0|3.0',
             ),
         ),
         'psr/simple-cache' => array(
