@@ -49,7 +49,8 @@
             "OpenSynergic\\Plugins\\": "packages/plugins-manager/src",
             "OpenSynergic\\Plugins\\Database\\Factories\\": "packages/plugins-manager/database/factories",
             "OpenSynergic\\ThemesManager\\": "packages/themes-manager/src",
-            "OpenSynergic\\ThemesManager\\Database\\Factories\\": "packages/themes-manager/database/factories"
+            "OpenSynergic\\ThemesManager\\Database\\Factories\\": "packages/themes-manager/database/factories",
+            "OpenSynergic\\ModelSettings\\": "packages/themes-manager/src"
         }
     },
     "autoload-dev": {
@@ -69,7 +70,8 @@
                 "OpenSynergic\\Hooks\\HooksServiceProvider",
                 "OpenSynergic\\EventManagement\\EventManagementServiceProvider",
                 "OpenSynergic\\Installer\\InstallerServiceProvider",
-                "OpenSynergic\\ThemesManager\\ThemesManagerServiceProvider"
+                "OpenSynergic\\ThemesManager\\ThemesManagerServiceProvider",
+                "OpenSynergic\\ModelSettings\\ModelSettingsServiceProvider"
             ],
             "aliases": {
                 "Plugin": "OpenSynergic\\Plugins\\Facades\\Plugin",

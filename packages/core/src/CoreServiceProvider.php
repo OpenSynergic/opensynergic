@@ -21,9 +21,7 @@ class CoreServiceProvider extends PluginServiceProvider
         Tables\Roles::class,
     ];
 
-    protected array $styles = [
-        'core' => __DIR__ . '/../dist/core.css',
-    ];
+    protected array $styles = [];
 
     public function packageConfigured(Package $package): void
     {

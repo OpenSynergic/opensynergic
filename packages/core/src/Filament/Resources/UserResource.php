@@ -25,7 +25,6 @@ use STS\FilamentImpersonate\Impersonate;
 class UserResource extends Resource
 {
     protected static ?string $model = User::class;
-    // protected static ?string $modelLabel = "Uasdsaa";
 
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
@@ -43,7 +42,6 @@ class UserResource extends Resource
     {
         return __('core::resources/user.navigation.label');
     }
-
 
     public static function form(Form $form): Form
     {

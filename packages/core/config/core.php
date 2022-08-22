@@ -20,9 +20,7 @@ return [
   ],
 
   'register' => [
-    'styles' => [
-      'core' => __DIR__ . '/../dist/core.css',
-    ],
+    'styles' => [],
     'beforeCoreScripts' => [],
     'scripts' => [],
     'pages' => [
