@@ -44,8 +44,6 @@
             "OpenSynergic\\EventManagement\\": "packages/event-management/src",
             "OpenSynergic\\EventManagement\\Database\\Factories\\": "packages/event-management/database/factories",
             "OpenSynergic\\Hooks\\": "packages/hooks/src",
-            "OpenSynergic\\Installer\\": "packages/installer/src",
-            "OpenSynergic\\Installer\\Database\\Factories\\": "packages/installer/database/factories",
             "OpenSynergic\\Plugins\\": "packages/plugins-manager/src",
             "OpenSynergic\\Plugins\\Database\\Factories\\": "packages/plugins-manager/database/factories",
             "OpenSynergic\\ThemesManager\\": "packages/themes-manager/src",
@@ -69,7 +67,6 @@
                 "OpenSynergic\\Core\\CoreServiceProvider",
                 "OpenSynergic\\Hooks\\HooksServiceProvider",
                 "OpenSynergic\\EventManagement\\EventManagementServiceProvider",
-                "OpenSynergic\\Installer\\InstallerServiceProvider",
                 "OpenSynergic\\ThemesManager\\ThemesManagerServiceProvider",
                 "OpenSynergic\\ModelSettings\\ModelSettingsServiceProvider"
             ],
@@ -77,7 +74,6 @@
                 "Plugin": "OpenSynergic\\Plugins\\Facades\\Plugin",
                 "Hook": "OpenSynergic\\Hooks\\Facades\\Hook",
                 "EventManagement": "OpenSynergic\\EventManagement\\Facades\\EventManagement",
-                "Installer": "OpenSynergic\\Installer\\Facades\\Installer",
                 "Themes": "OpenSynergic\\ThemesManager\\Facades\\Themes"
             }
         }

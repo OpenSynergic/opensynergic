@@ -16,7 +16,7 @@ jobs:
           - hooks
           - plugins-manager
           - themes-manager
-          - installer
+          - model-settings
 
     steps:
       - uses: actions/checkout@v2
