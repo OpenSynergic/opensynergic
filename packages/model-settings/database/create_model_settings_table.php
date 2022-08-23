@@ -16,6 +16,7 @@ class CreateModelSettingsTable extends Migration
                 $table->string('key')->index();
                 $table->longtext('value')->nullable();
                 $table->string('type')->default('string');
+                $table->timestamps();
 
                 $table->unique(['model_type', 'model_id', 'locale']);
             });
