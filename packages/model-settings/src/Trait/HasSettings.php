@@ -9,7 +9,6 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
 use OpenSynergic\ModelSettings\Model\ModelSetting;
-use Spatie\Macroable\Macroable;
 
 trait HasSettings
 {
@@ -28,7 +27,6 @@ trait HasSettings
 
   protected $preferredLocale = null;
 
-  // protected $hideSettings = false;
 
   public function settings()
   {
@@ -59,9 +57,6 @@ trait HasSettings
 
     $this->settingAttributes = $this->settingAttributesOriginal = $this->readSettingsData();
     $this->settingsLoaded = true;
-    // if (!$this->hideSettings) {
-    //   $this->appendSettingsAttribute();
-    // }
 
     return $this;
   }
@@ -70,22 +65,6 @@ trait HasSettings
   {
     $this->setAppends(array_keys($this->settingAttributes));
   }
-
-  // /**
-  //  * Get all of the appendable values that are arrayable.
-  //  *
-  //  * @return array
-  //  */
-  // protected function getArrayableAppends()
-  // {
-  //   if (!count($this->appends)) {
-  //     return [];
-  //   }
-
-  //   return $this->getArrayableItems(
-  //     array_combine($this->appends, $this->appends)
-  //   );
-  // }
 
 
   public function saveSettings()
@@ -453,19 +432,4 @@ trait HasSettings
 
     return in_array(strtolower($column), $columns[$class]);
   }
-
-  // public function getAttributes()
-  // {
-  //   return array_merge(parent::getAttributes(), $this->getSettingAttributes());
-  // }
-
-  // public function __call($method, $parameters)
-  // {
-  //   $slice = strtolower(Str::between($method, 'get', 'Attribute'));
-  //   if (in_array($slice, array_keys($this->getSetting()))) {
-  //     return $this->getSetting($slice);
-  //   }
-
-  //   return parent::__call($method, $parameters);
-  // }
 }
