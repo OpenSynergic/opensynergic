@@ -8,6 +8,7 @@ use ResourceBundle;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
+use OpenSynergic\ModelSettings\Model\ModelSetting;
 
 trait HasSettings
 {
@@ -26,12 +27,19 @@ trait HasSettings
 
   protected $preferredLocale = null;
 
+
+  public function settings()
+  {
+    return $this->morphMany(ModelSetting::class, 'model');
+  }
+
   public static function bootHasSettings()
   {
     static::retrieved(function ($model) {
+      $model->loadSettings();
     });
 
-    static::saved(function ($model) {
+    static::saving(function ($model) {
       $model->saveSettings();
     });
   }
@@ -41,23 +49,29 @@ trait HasSettings
     return $this::class;
   }
 
-  public function loadSettings($force = false)
+  public function loadSettings()
   {
-    if ($this->settingsLoaded && !$force) {
+    if ((!$this->relationLoaded('settings') || $this->settingsLoaded) && filled($this->settingAttributes)) {
       return;
     }
+
     $this->settingAttributes = $this->settingAttributesOriginal = $this->readSettingsData();
     $this->settingsLoaded = true;
 
     return $this;
   }
 
+  public function appendSettingsAttribute()
+  {
+    $this->setAppends(array_keys($this->settingAttributes));
+  }
+
+
   public function saveSettings()
   {
     if (!$this->settingsLoaded) {
       return;
     }
-
     if (config('model_settings.cache.enabled')) {
       Cache::forget($this->getCacheKey());
     }
@@ -120,24 +134,10 @@ trait HasSettings
 
   protected function readSettingsData()
   {
-    if (config('model_settings.cache.enabled')) {
-      return $this->getSettingsDataFromCache();
+    if (!$this->exists) {
+      return [];
     }
-    return $this->getSettingsDataFromDatabase();
-  }
-
-  protected function getSettingsDataFromCache()
-  {
-    return Cache::remember(
-      $this->getCacheKey(),
-      config('model_settings.cache.ttl'),
-      fn () => $this->getSettingsDataFromDatabase()
-    );
-  }
-
-  protected function getSettingsDataFromDatabase()
-  {
-    return $this->parseDataFromDatabase($this->newSettingsQuery()->get());
+    return $this->parseDataFromDatabase($this->settings->toArray());
   }
 
   public function getPreferredLocale()
@@ -158,6 +158,7 @@ trait HasSettings
   {
     $results = [];
     foreach ($data as $row) {
+      $row = (object) $row;
       $value = $this->valueFromDatabase($row->value, $row->type);
       if ($row->locale) {
         $results[$row->key][$row->locale] = $value;
@@ -204,16 +205,14 @@ trait HasSettings
     }
   }
 
-  protected function isDataTranslatable($data)
+  protected function isDataTranslatable($data): bool
   {
     if (!filled($data) || !is_array($data)) return false;
 
-    $allLocales = ResourceBundle::getLocales('');
-
-    return in_array(array_key_first($data), $allLocales);
+    return $this->isValidLocale(array_key_first($data));
   }
 
-  protected function isValidLocale($locale)
+  protected function isValidLocale($locale): bool
   {
     $allLocales = ResourceBundle::getLocales('');
     return in_array($locale, $allLocales);
@@ -296,7 +295,6 @@ trait HasSettings
         $dirty[$key] = $value;
       }
     }
-
     return $dirty;
   }
 
@@ -382,6 +380,7 @@ trait HasSettings
 
     return $setting;
   }
+
 
   public function setAttribute($key, $value)
   {
