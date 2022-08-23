@@ -39,7 +39,7 @@ trait HasSettings
       $model->loadSettings();
     });
 
-    static::saving(function ($model) {
+    static::saved(function ($model) {
       $model->saveSettings();
     });
   }
