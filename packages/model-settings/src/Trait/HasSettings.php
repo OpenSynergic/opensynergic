@@ -12,33 +12,38 @@ use OpenSynergic\ModelSettings\Model\ModelSetting;
 
 trait HasSettings
 {
-  /**
-   * The array of settings attributes.
-   *
-   * @var array
-   */
-  protected $settingAttributes = [];
+  protected array $settingAttributes = [];
 
-  protected $settingAttributesOriginal = [];
+  protected array $settingAttributesOriginal = [];
 
-  protected $settingsKeys = [];
+  protected array $settingsKeys = [];
 
-  protected $settingsLoaded = false;
+  protected bool $settingsLoaded = false;
 
-  protected $preferredLocale = null;
+  protected ?string $preferredLocale = null;
 
+  public static function usingLocale(string $locale)
+  {
+    return (new static())->setPreferredLocale($locale);
+  }
 
   public function settings()
   {
     return $this->morphMany(ModelSetting::class, 'model');
   }
 
+  public function getTranslatableAttributes(): array
+  {
+    return $this->translatable ?? [];
+  }
+
+  public function isAttributeTranslatable($key): bool
+  {
+    return in_array($key, $this->getTranslatableAttributes());
+  }
+
   public static function bootHasSettings()
   {
-    static::retrieved(function ($model) {
-      $model->loadSettings();
-    });
-
     static::saved(function ($model) {
       $model->saveSettings();
     });
@@ -147,11 +152,15 @@ trait HasSettings
 
   public function setPreferredLocale($locale)
   {
+    if (!$locale) return $this;
+
     if (!$this->isValidLocale($locale)) {
-      throw new \InvalidArgumentException('Invalid locale');
+      throw new \InvalidArgumentException('Invalid locale : ' . $locale);
     }
 
     $this->preferredLocale = $locale;
+
+    return $this;
   }
 
   protected function parseDataFromDatabase($data)
@@ -252,7 +261,7 @@ trait HasSettings
 
     if (!filled($data)) return $default;
 
-    if ($this->isDataTranslatable($data) && $locale !== false) {
+    if ($this->isAttributeTranslatable($key) && $locale !== false) {
       return Arr::get($data, $fallbackLocale, $default);
     }
 
@@ -269,19 +278,31 @@ trait HasSettings
 
     if (!filled($data)) return $data;
 
-    if ($this->isDataTranslatable($data) && $locale !== false) {
+    if ($this->isAttributeTranslatable($key) && $locale !== false) {
       return Arr::get($data, $fallbackLocale);
     }
 
     return $data;
   }
 
-  protected function getSettingAttributes(): array
+  public function settingAttributesToArray()
+  {
+    $this->loadSettings();
+
+    $attributes = $this->settingAttributes;
+    foreach ($this->getTranslatableAttributes() as $attribute) {
+      $attributes[$attribute] = $this->getSetting($attribute);
+    }
+
+    return $attributes;
+  }
+
+  public function getSettingAttributes(): array
   {
     return $this->settingAttributes;
   }
 
-  protected function getSettingAttributesOriginal(): array
+  public function getSettingAttributesOriginal(): array
   {
     return $this->settingAttributesOriginal;
   }
@@ -302,27 +323,20 @@ trait HasSettings
   {
     $this->loadSettings();
 
-    $data = Arr::get($this->settingAttributes, $key);
+    $data = Arr::get($this->settingAttributes, $key, []);
     switch (true) {
-      case filled($data) && $value !== null:
-        if ($this->isDataTranslatable($data)) {
-          $locale ??= $this->getPreferredLocale() ?: app()->getLocale();
-          $data[$locale] = $value;
-        } else {
-          $data = $value;
-        }
+      case $this->isAttributeTranslatable($key) && $this->isDataTranslatable($value):
+        $data  = $value;
         break;
-      case !filled($data) && $value !== null:
-        if ($locale) {
-          $data[$locale] = $value;
-        } else {
-          $data = $value;
-        }
+      case $this->isAttributeTranslatable($key):
+        $locale ??= $this->getPreferredLocale() ?: app()->getLocale();
+        $data[$locale] = $value;
         break;
       default:
         $data = $value;
         break;
     }
+
     $this->settingAttributes[$key] = $data;
 
     return $this;
